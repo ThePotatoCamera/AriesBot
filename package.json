@@ -1,0 +1,29 @@
+{
+  "name": "mybot-heroku",
+  "version": "1.0.0",
+  "description": "Mi Bot Discord.js en Heroku",
+  "main": "index.js",
+  "engines": {
+    "node": "8.x",
+    "npm": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cratermaik"
+  },
+  "keywords": [
+    "heroku",
+    "discord.js"
+  ],
+  "author": "cratermaik",
+  "license": "MIT",
+  "homepage": "https://github.com/cratermaik",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "discordjs-bot-framework": "^1.9.94"
+  }
+}
