@@ -108,7 +108,7 @@ module.exports.run = async (bot, message, args) => {
             message.delete(78000)
             }
         
-            function categoriaEntretenimiento() {
+            function categoriaEntretenimiento(){
                 const funEmbed = new Discord.RichEmbed()
                     .setTitle('Comandos de entretenimiento')
                     .setColor(0xefb810)
@@ -118,8 +118,10 @@ module.exports.run = async (bot, message, args) => {
                     .addField(`moneda`,`Pone la foto de una moneda, Puede ser cara o cruz. ***Sintaxis: <d!moneda***>`)
                     .addField(`emoticono`,`Envia un emoticono aleatorio.  ***Sintaxis: <d!emoticono***>`)
                     .addField(`cartas:`,`Saca una carta aleatoria del 1 al 6 con posibilidad de sacar personajes (PokeToribio,MarisaTheKiller,Pikachu,Joker y Pokemari). ***Sintaxis: <d!cartas***>`)
-                    .addField(`amor`,`Calculas el por porcentaje (%) de amor entre las personas que menciones. ***Sintaxis: <d!amor***> <@usuario> [@usuario]`)
-                    .addField(`ariesdice`,`Es como el "Simon dice" pero con aries. ***Sintaxis: <d!ariesdice***>`)
+                    .addField(`amor:`,`Calculas el por porcentaje (%) de amor entre las personas que menciones. ***Sintaxis: <d!amor> <@usuario> [@usuario]***`)
+                    .addField(`ariesdice:`,`Es como el "Simon dice" pero con aries. ***Sintaxis: <d!ariesdice***>`)
+                    .addField(`ppt:`,`El famoso juego de "Piedra,Papel o Tijeras" en discord y en español!. ***Sintaxis: <d!ppt> <@eleccion>*** `)
+                    .addField(`spoiler:`,`Es como el comando **decir** pero pone todo con spoiler (||asi||). ***Sintaxis: d!spoiler <frase,palabra o numero>***`)
                     .setTimestamp();
         
                 message.channel.send(funEmbed)
@@ -148,8 +150,6 @@ module.exports.run = async (bot, message, args) => {
                 .setTitle(`Comandos de moderacion:`)
                     .setColor(0xefb810)
                     .addField(`borrar:`,`Borra el numero de mensajes que definas. ***Sintaxis: d!borrar <numero>***`)
-                    .addField(`kick:`,`Hecha al usuario mencionado del servidor. ***Sintaxis: d!kick <@usuario>***`)
-                    .addField(`ban:`,`Hecha permanentemente al usuario del servidor. ***Sintaxis: d!ban <@usuario>***`)
                     .addField(`bdecir`,`Igual que el decir del entretenimiento pero borra el comando puesto. ***Sintaxis: d!decir <frase,palabra o numero>***`)
                     .setTimestamp();
         
@@ -166,7 +166,8 @@ module.exports.run = async (bot, message, args) => {
                         .addField(`servidor:`,`Te muestra la información del servidor. ***Sintaxis: d!servidor***`)
                         .addField(`usuario:`,`Te muestra la información del usuario mencionado. ***Sintaxis: d!usuario [@usuario]***`)
                         .addField(`afk`,`Sistema afk cuando te mencionan el bot pone el mensaje que definas.  ***Sintaxis: d!afk [razon]***`)
-                        .addField(`foto`,`Manda la foto de perfil del usuario mencionado o la tuya si no mencionas a nadie.***Sintaxis: d!foto [@usuario]***`)
+                        .addField(`foto`,`Manda la foto de perfil del usuario mencionado o la tuya si no mencionas a nadie.   ***Sintaxis: d!foto [@usuario]***`)
+                        .addField(`codigo`,`Genera un codigo aleatorio en forma de XXXX**-**XXXX**-**XXXX.  ***Sintaxis: d!codigo***`)
                         .setTimestamp();
         
                     message.channel.send(suEmbed)
