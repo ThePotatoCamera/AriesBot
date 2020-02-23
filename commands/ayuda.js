@@ -130,7 +130,7 @@ module.exports.run = async (bot, message, args) => {
             }
         
             function categoriaNsfw() {
-                if (message.channel.nsfw === false) return message.channel.send(`${message.author}, <:NSFWAries:590984948627013645> ***no puedo mostrar contenido NSFW fuera de los canales NSFW.*** <:NSFWAries:590984948627013645>`)
+                if (message.channel.nsfw === false) return message.channel.send(`${message.author}, <:NO_NSFW:681246772290781237> ***no puedo mostrar contenido NSFW fuera de los canales NSFW.*** <:NO_NSFW:681246772290781237>`)
                 const proEmbed = new Discord.RichEmbed()
                     .setTitle(`Comandos NSFW:`)
                     .setColor(0xefb810)
