@@ -7,7 +7,7 @@ exports.run = (client, message, args) => {
 
     if (!args[0]) return message.channel.send("Porfavor añade el reporte en forma de mensaje")
     
-    client.guilds.get(`485503371441078294`).client.channels.get('648504704661323786').send({embed: {
+    client.guilds.get(`678282402979905547`).client.channels.get('681147632340566055').send({embed: {
         color: 3447003,
         description: reporte,
         timestamp: new Date(),
@@ -15,7 +15,7 @@ exports.run = (client, message, args) => {
             icon_url: message.author.avatarURL,
             text: `Mensaje enviado por: ${message.author.tag}`
           }
-      }}).then(message.channel.send(`Reporte enviado, recuerda que puedes unirte al servidor de soporte con d!soporte`))
+      }}).then(message.channel.send(`Reporte enviado, recuerda que puedes unirte al servidor de soporte con **d!soporte**`))
 };
 module.exports.help = {
     name: "reportar"

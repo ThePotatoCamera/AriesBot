@@ -2,8 +2,8 @@ const Discord = require('discord.js');
 
 exports.run = (client, message, args) => {
 
-       const server = client.guilds.get('485503371441078294');
-       const staff = server.roles.get('662288430323204096');
+       const server = client.guilds.get('678282402979905547');
+       const staff = server.roles.get('681152401109024781');
        if (server.member(message.author).roles.some(r => [staff].includes(r))) {
        const mention = message.mentions.users.first();
        const mensaje = args.slice(1).join(" ")  
