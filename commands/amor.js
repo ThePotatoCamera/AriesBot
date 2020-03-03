@@ -5,18 +5,19 @@ module.exports.run = async (bot, message, args) => {
     if(!users) return message.channel.send('porfavor menciona a 2 personas');
     const random = Math.floor(Math.random() * 101);
 
-    let heard = "";
+    let heard = random;
  
-    if(random < 50){
+    if(heard < 50){
+        
         heard='La tension se corta con un chchillo';
 
-    }else if(random < 30){
+    }else if(heard < 30){
         heard=':scream: Cuidado que vuelvan cuchillos :scream:';
 
-    }else if(random < 80){
+    }else if(heard < 80){
         heard='El amor se empieza a manifestar';
         
-    }else if(random < 101){
+    }else if(heard < 101){
         heard='El amor flota en el amienté!';
 
     }
@@ -24,16 +25,16 @@ module.exports.run = async (bot, message, args) => {
     let heard2 = "";
  
     if(random < 30){
-        heard=':broken_heart: ';
+        heard2=':broken_heart: ';
 
     }else if(random < 50){
-        heard=':yellow_heart:';
+        heard2=':yellow_heart:';
 
     }else if(random < 80){
-        heard=':cupid: ';
+        heard2=':cupid: ';
         
     }else if(random < 105){
-        heard=':sparkling_heart: ';
+        heard2=':sparkling_heart: ';
 
     }
 
@@ -41,8 +42,8 @@ module.exports.run = async (bot, message, args) => {
     .setColor("#efb810")
     .setDescription(`*La compatibilidad de* **${users}**`)
     .addField(`**Es del:**`,`** ${random}% **`)
-    .addField(`*Corazon:* ${heard2}`,heard)
-    .setFooter("Mensaje enviado")
+    .addField(`*Corazon:*   ${heard2}`, `**${heard}**`)
+    .setFooter(`Mensaje enviado`)
     .setTimestamp()
     message.channel.send(ballembed)
       
