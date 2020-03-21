@@ -25,7 +25,7 @@ exports.run = (client, message, args) => {
       if (!user) return message.reply("porfavor menciona a alguien");
 			const embed = new Discord.RichEmbed()
 				.setColor(0xefb810)
-				.setDescription(`${message.author} esta matando a ${mention}.`)
+				.setDescription(`${message.author} a matado a ${mention}.`)
 				.setImage(randomItem(images));
 
 			message.channel.send({ embed });
