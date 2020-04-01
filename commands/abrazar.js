@@ -15,7 +15,7 @@ exports.run = (client, message, args) => {
 		else if (args < 1) {
 			const embed = new Discord.RichEmbed()
 				.setColor(0xefb810)
-				.setDescription(`${message.author} abrazoo al aire.`)
+				.setDescription(`${message.author} abrazo al aire.`)
 				.setImage(randomItem(images));
 
 			message.channel.send({ embed });
