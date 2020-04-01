@@ -22,7 +22,7 @@ exports.run = (client, message, args) => {
 		}
 		else {
 			let user = message.mentions.members.first()
-      if (!user) return message.reply("porfavor menciona a alguien");
+      if (!user) return message.reply("porfavor mencionaa a alguien");
 			const embed = new Discord.RichEmbed()
 				.setColor(0xefb810)
 				.setDescription(`Que bonito ${message.author} está abrazando a ${mention}.`)
