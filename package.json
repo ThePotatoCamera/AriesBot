@@ -1,7 +1,7 @@
 {
-  "name": "mybot-heroku",
-  "version": "1.0.0",
-  "description": "Mi Bot Discord.js en Heroku",
+  "name": "ariesbot",
+  "version": "4.4.0",
+  "description": "Ariesbot",
   "main": "index.js",
   "engines": {
     "node": "8.x",
@@ -13,17 +13,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cratermaik"
+    "url": "https://github.com/poketoribio/ariesbot"
   },
   "keywords": [
-    "heroku",
     "discord.js"
   ],
-  "author": "cratermaik",
-  "license": "MIT",
-  "homepage": "https://github.com/cratermaik",
+  "author": "Poketoribio",
+  "license": "AGPL-3.0-only",
+  "homepage": "https://poketoribio.github.io/",
   "dependencies": {
     "discord.js": "^11.5.1",
     "discordjs-bot-framework": "^1.9.94"
+  },
+  "bugs": {
+    "url" : "https://github.com/PokeToribio/AriesBot/issues"
   }
 }
