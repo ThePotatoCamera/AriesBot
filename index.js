@@ -4,6 +4,17 @@ const bot = new Discord.Client({disableEveryone: true});
 const client = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 const config = require("./botconfig.json");
+const token = process.env.TOKEN;
+const Sequelize = require('sequelize');
+
+// Configuracion de la DB
+const sequelize = new Sequelize('database', 'user', 'password', {
+  host: 'localhost',
+  dialect: 'sqlite',
+  logging: false,
+  // Config exclusiva SQLite
+  storage: 'database.sqlite'
+});
 
 let prefix = config.prefix;
 const fs = require(`fs`);
@@ -38,11 +49,11 @@ bot.on("message", async message => {
 
   if (message.content.includes(message.mentions.users.first())) {
     let mentioned = bot.afk.get(message.mentions.users.first().id);
-    if (mentioned) message.channel.send(`**${mentioned.usertag}** Esta afk por: ** ${mentioned.reason}**`)
+    if (mentioned) message.channel.send(`**${mentioned.usertag}** Está AFK: ** ${mentioned.reason}**`)
   }
 
   let afkcheck = bot.afk.get(message.author.id);
-  if (afkcheck) return [bot.afk.delete(message.author.id) ,message.reply('Ya no esta afk!')]
+  if (afkcheck) return [bot.afk.delete(message.author.id) ,message.reply('Ya no está AFK')]
 
       const botconfig = require("./botconfig.json");
       if(!message.content.startsWith(prefix))return;
@@ -56,5 +67,4 @@ bot.on("message", async message => {
 
 })
 
-//bot.login("NDk4Nzk2NTg3MzIyMDQ4NTIy.Xg3kfg.ddNk-Z7ILQqNNx7R_RvRxwChFc4");
-bot.login(process.env.TOKEN);
+bot.login('NDk4Nzk2NTg3MzIyMDQ4NTIy.XoT0EA.v3yWLkSc4cgl-_2gHILpTU6k_lw');
