@@ -4,6 +4,17 @@ const bot = new Discord.Client({disableEveryone: true});
 const client = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 const config = require("./botconfig.json");
+const token = process.env.TOKEN;
+const Sequelize = require('sequelize');
+
+// Configuracion de la DB
+const sequelize = new Sequelize('database', 'user', 'password', {
+  host: 'localhost',
+  dialect: 'sqlite',
+  logging: false,
+  // Config exclusiva SQLite
+  storage: 'database.sqlite'
+});
 
 let prefix = config.prefix;
 const fs = require(`fs`);
