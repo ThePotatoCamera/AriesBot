@@ -1,7 +1,7 @@
+require('dotenv').config();
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
-const client = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 const config = require("./botconfig.json");
 const token = process.env.TOKEN;
@@ -67,5 +67,4 @@ bot.on("message", async message => {
 
 })
 
-//bot.login("NDk4Nzk2NTg3MzIyMDQ4NTIy.Xg3kfg.ddNk-Z7ILQqNNx7R_RvRxwChFc4");
-bot.login(process.env.TOKEN);
+bot.login(token);
