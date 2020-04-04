@@ -1,6 +1,5 @@
 module.exports.run = async (bot, message, args) => {
 
-    const Sequelize = require('sequelize');
     const tablas = require('../index.js');
     const numeroGenero = setGenero(args[0]);
     const descripcionGenero = describirGenero(numeroGenero);
@@ -10,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     } */
 
     try {
-        const registro = await tablas.tablaGeneros.create({
+        const registro = await tablas.tablaGeneros.create ({
             IDusuario: message.author.id,
             genero: numeroGenero,
             descripcionGenero: descripcionGenero,
