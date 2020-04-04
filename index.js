@@ -62,18 +62,9 @@ bot.on("ready", async () => {
 
 // AFK
 
-bot.afk = new Map();
+afk = new Map();
+
 bot.on("message", async message => {
-
-  if(message.guild === null) return;
-
-  if (message.content.includes(message.mentions.users.first())) {
-    let mentioned = bot.afk.get(message.mentions.users.first().id);
-    if (mentioned) message.channel.send(`**${mentioned.usertag}** Esta afk por: ** ${mentioned.reason}**`)
-  }
-
-  let afkcheck = bot.afk.get(message.author.id);
-  if (afkcheck) return [bot.afk.delete(message.author.id) ,message.reply('Ya no esta afk!')]
 
       const botconfig = require("./botconfig.json");
       if(!message.content.startsWith(prefix))return;
