@@ -16,6 +16,23 @@ const sequelize = new Sequelize('database', 'user', 'password', {
   storage: 'database.sqlite'
 });
 
+// Definición de tablas de la DB
+const tablaGeneros = sequelize.define('generos', {
+  IDusuario: {
+      type: Sequelize.STRING,
+      unique: true,
+  },
+  genero: {
+      type: Sequelize.INTEGER,
+      defaultValue: null,
+  },
+  descripcionGenero: Sequelize.STRING,
+});
+
+tablaGeneros.sync();
+
+// Carga de prefix y de comandos y eventos
+
 let prefix = config.prefix;
 const fs = require(`fs`);
 
@@ -42,6 +59,9 @@ bot.on("ready", async () => {
 
 
 });
+
+// AFK
+
 bot.afk = new Map();
 bot.on("message", async message => {
 
@@ -66,5 +86,10 @@ bot.on("message", async message => {
       if(message.isMentioned(bot.user) == args[0]) return;
 
 })
+
+// Exports de tablas
+exports.tablaGeneros = tablaGeneros;
+
+// Login
 
 bot.login(token);
