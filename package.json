@@ -23,9 +23,12 @@
   "homepage": "https://poketoribio.github.io/",
   "dependencies": {
     "discord.js": "^11.5.1",
-    "discordjs-bot-framework": "^1.9.94"
+    "discordjs-bot-framework": "^1.9.94",
+    "dotenv": "^8.2.0",
+    "sequelize": "^5.21.5",
+    "sqlite3": "^4.1.1"
   },
   "bugs": {
-    "url" : "https://github.com/PokeToribio/AriesBot/issues"
+    "url": "https://github.com/PokeToribio/AriesBot/issues"
   }
 }

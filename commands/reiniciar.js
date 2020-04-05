@@ -6,8 +6,8 @@ module.exports.run = async (bot, message) => {
 		message.reply('Reiniciando el bot...')
 		bot.destroy();
 		bot.login(process.env.TOKEN)
-		.then(() => message.reply("Bot reiniciado"));
-       }else return message.channel.send("Comando disponible solo para el staff de Aries Bot")
+		.then(() => message.reply("Bot reiniciado."));
+       }else return message.channel.send("Lo siento, no tienes permiso para ejecutar este comando.")
 	}
 module.exports.help = {
     name: "reiniciar"
