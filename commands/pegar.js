@@ -7,7 +7,7 @@ exports.run = (client, message, args) => {
 		if (message.author == args[0]) {
 			const embed = new Discord.RichEmbed()
 				.setColor(0xefb810)
-				.setDescription(`${message.author} se esta pegando el solo`)
+				.setDescription(`${message.author} se está pegando solo.`)
 				.setImage(randomItem(images));
 
 			message.channel.send({ embed });
@@ -15,17 +15,17 @@ exports.run = (client, message, args) => {
 		else if (args < 1) {
 			const embed = new Discord.RichEmbed()
 				.setColor(0xefb810)
-				.setDescription(`${message.author} esta pegando al aire.`)
+				.setDescription(`${message.author} está pegando al aire.`)
 				.setImage(randomItem(images));
 
 			message.channel.send({ embed });
 		}
 		else {
 			let user = message.mentions.members.first()
-      if (!user) return message.reply("porfavor menciona a alguien");
+      if (!user) return message.channel.send("Por favor, menciona a alguien.");
 			const embed = new Discord.RichEmbed()
 				.setColor(0xefb810)
-				.setDescription(`${message.author} esta pegando a ${mention}.`)
+				.setDescription(`${message.author} está pegando a ${mention}.`)
 				.setImage(randomItem(images));
 
 			message.channel.send({ embed });
