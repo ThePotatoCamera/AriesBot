@@ -8,7 +8,7 @@ const token = process.env.TOKEN;
 const Sequelize = require('sequelize');
 
 // Configuracion de la DB
-const sequelize = new Sequelize('database', 'user', 'password', {
+/* const sequelize = new Sequelize('database', 'user', 'password', {
   host: 'localhost',
   dialect: 'sqlite',
   logging: false,
@@ -29,7 +29,7 @@ const tablaGeneros = sequelize.define('generos', {
   descripcionGenero: Sequelize.STRING,
 });
 
-tablaGeneros.sync();
+tablaGeneros.sync(); */
 
 // Carga de prefix y de comandos y eventos
 
@@ -79,7 +79,7 @@ bot.on("message", async message => {
 })
 
 // Exports de tablas
-exports.tablaGeneros = tablaGeneros;
+// exports.tablaGeneros = tablaGeneros;
 
 // Login
 
