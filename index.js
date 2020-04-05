@@ -1,9 +1,37 @@
+require('dotenv').config();
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
-const client = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 const config = require("./botconfig.json");
+const token = process.env.TOKEN;
+const Sequelize = require('sequelize');
+
+// Configuracion de la DB
+const sequelize = new Sequelize('database', 'user', 'password', {
+  host: 'localhost',
+  dialect: 'sqlite',
+  logging: false,
+  // Config exclusiva SQLite
+  storage: 'database.sqlite'
+});
+
+// Definición de tablas de la DB
+const tablaGeneros = sequelize.define('generos', {
+  IDusuario: {
+      type: Sequelize.STRING,
+      unique: true,
+  },
+  genero: {
+      type: Sequelize.INTEGER,
+      defaultValue: null,
+  },
+  descripcionGenero: Sequelize.STRING,
+});
+
+tablaGeneros.sync();
+
+// Carga de prefix y de comandos y eventos
 
 let prefix = config.prefix;
 const fs = require(`fs`);
@@ -31,18 +59,12 @@ bot.on("ready", async () => {
 
 
 });
-bot.afk = new Map();
+
+// AFK
+
+afk = new Map();
+
 bot.on("message", async message => {
-
-  if(message.guild === null) return;
-
-  if (message.content.includes(message.mentions.users.first())) {
-    let mentioned = bot.afk.get(message.mentions.users.first().id);
-    if (mentioned) message.channel.send(`**${mentioned.usertag}** Esta afk por: ** ${mentioned.reason}**`)
-  }
-
-  let afkcheck = bot.afk.get(message.author.id);
-  if (afkcheck) return [bot.afk.delete(message.author.id) ,message.reply('Ya no esta afk!')]
 
       const botconfig = require("./botconfig.json");
       if(!message.content.startsWith(prefix))return;
@@ -56,5 +78,9 @@ bot.on("message", async message => {
 
 })
 
-//bot.login("NDk4Nzk2NTg3MzIyMDQ4NTIy.Xg3kfg.ddNk-Z7ILQqNNx7R_RvRxwChFc4");
-bot.login(process.env.TOKEN);
+// Exports de tablas
+exports.tablaGeneros = tablaGeneros;
+
+// Login
+
+bot.login(token);

@@ -5,7 +5,7 @@ const Discord = require("discord.js");
 		const ping = Math.round(client.ping);
 	
 		const embed = new Discord.RichEmbed()
-			.setTitle(`Informacion de: **__ ${client.user.username} __**`)
+			.setTitle(`Información de: **__ ${client.user.username} __**`)
 			.setThumbnail(client.user.avatarURL)
 			.setColor(0xefb810)
 			.addField('Ping:', ping, true)

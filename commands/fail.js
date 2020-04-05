@@ -7,7 +7,7 @@ exports.run = (client, message, args) => {
 		if (message.author == args[0]) {
 			const embed = new Discord.RichEmbed()
 				.setColor(0xefb810)
-				.setDescription(`${message.author} se esta diciendo a si mismo que a cometido un fail.`)
+				.setDescription(`${message.author} se está diciendo a si mismo que ha cometido un fail.`)
 				.setImage(randomItem(images));
 
 			message.channel.send({ embed });
@@ -15,17 +15,17 @@ exports.run = (client, message, args) => {
 		else if (args < 1) {
 			const embed = new Discord.RichEmbed()
 				.setColor(0xefb810)
-				.setDescription(`${message.author} a cometido un fail.`)
+				.setDescription(`${message.author} ha cometido un fail.`)
 				.setImage(randomItem(images));
 
 			message.channel.send({ embed });
 		}
 		else {
 			let user = message.mentions.members.first()
-      if (!user) return message.reply("porfavor menciona a alguien");
+      if (!user) return message.channel.send("Por favor, menciona a alguien.");
 			const embed = new Discord.RichEmbed()
 				.setColor(0xefb810)
-				.setDescription(`${message.author} le esta restregando a ${mention} que a cometido un fail.`)
+				.setDescription(`${message.author} le está restregando a ${mention} que ha cometido un fail.`)
 				.setImage(randomItem(images));
 
 			message.channel.send({ embed });
