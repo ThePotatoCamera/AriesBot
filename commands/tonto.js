@@ -7,7 +7,7 @@ exports.run = (client, message, args) => {
 		if (message.author == args[0]) {
 			const embed = new Discord.RichEmbed()
 				.setColor(0xefb810)
-				.setDescription(`${message.author} admite que es tonto.`)
+				.setDescription(`${message.author} admite que es tonto`)
 				.setImage(randomItem(images));
 
 			message.channel.send({ embed });
@@ -22,10 +22,10 @@ exports.run = (client, message, args) => {
 		}
 		else {
 			let user = message.mentions.members.first()
-      if (!user) return message.channel.send("Por favor, menciona a alguien.");
+      if (!user) return message.reply("porfavor menciona a alguien");
 			const embed = new Discord.RichEmbed()
 				.setColor(0xefb810)
-				.setDescription(`${message.author} está llamando tonto a ${mention}.`)
+				.setDescription(`${message.author} esta llamando tonto a ${mention}.`)
 				.setImage(randomItem(images));
 
 			message.channel.send({ embed });

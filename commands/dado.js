@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
 	}
 
 	if (caras < 2) {
-		message.channel.send('El dado tiene que tener al menos dos caras.');
+		message.channel.send('El dado tiene que tener al menos dos caras. **<dado** (*caras*)');
 		return;
 	}
 

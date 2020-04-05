@@ -75,6 +75,3 @@ jspm_packages
 
 # Heroku Env
 .env
-
-# DB
-*.sqlite

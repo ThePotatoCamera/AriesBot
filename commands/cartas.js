@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-    if(message.channel.name == undefined) return message.channel.send("No puedes ejecutar este comando en un canal privado.")
+    if(message.channel.name == undefined) return message.channel.send("No puedes ejecutar este comando en un canal privado")
  
     if (message.guild) {
         {
@@ -11,6 +11,7 @@ module.exports.run = async (bot, message, args) => {
                 .setColor(0xefb810)
                 .setDescription(`${message.author} ha sacado la carta:`)
                 .setImage(randomItem(images))
+                .setFooter("Mensaje enviado")
                 .setTimestamp()
    
             message.channel.send({ embed }); 
