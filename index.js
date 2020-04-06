@@ -29,7 +29,14 @@ const tablaGeneros = sequelize.define('generos', {
   descripcionGenero: Sequelize.STRING,
 });
 
+const tablaF = sequelize.define('respects', {
+  contadorF: Sequelize.NUMBER
+});
+
+// Sincronizar las tablas
+
 tablaGeneros.sync();
+tablaF.sync();
 
 // Carga de prefix y de comandos y eventos
 
@@ -79,7 +86,9 @@ bot.on("message", async message => {
 })
 
 // Exports de tablas
+
 exports.tablaGeneros = tablaGeneros;
+exports.tablaF = tablaF;
 
 // Login
 
