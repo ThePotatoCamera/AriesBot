@@ -2,15 +2,7 @@ module.exports.run = async (bot, message, args) => {
 
     const Discord = require('discord.js');
     const tablas = require('../index.js');
-    const recuento = contar();
-
-    const embed = new Discord.RichEmbed()
-        .setColor(0xaa0000)
-        .setTitle('F en el chat')
-        .setDescription(`${message.author} ha pagado sus respetos.`)
-        .setFooter(`Total de respetos: ${recuento}`);
-    
-        message.channel.send({embed});
+    contar()
 
     async function contar() {
         try {
@@ -22,22 +14,33 @@ module.exports.run = async (bot, message, args) => {
         if (contador) {
             contador.increment('contadorF');
             tablas.tablaF.sync();
-            return contador.contadorF;
+            const embed = new Discord.RichEmbed()
+            .setColor(0xaa0000)
+            .setTitle('F en el chat')
+            .setDescription(`${message.author} ha pagado sus respetos.`)
+            .setFooter(`Total de respetos: ${contador.get('contadorF')}`);
+        
+            return message.channel.send({embed});;
         }
         else {
-            return message.channel.send('Error desconocido.')
-        }
-        }
-    catch (e) {
-        const contador = await tablas.tablaF.create ({
-            contadorF: 0,
-        });
-        contador.increment('contadorF')
-        tablas.tablaF.sync();
-        return contador.contadorF;
-    }
+            const contador = await tablas.tablaF.create ({
+                contadorF: 0,
+            });
+            contador.increment('contadorF')
+            tablas.tablaF.sync();
+            const embed = new Discord.RichEmbed()
+            .setColor(0xaa0000)
+            .setTitle('F en el chat')
+            .setDescription(`${message.author} ha pagado sus respetos.`)
+            .setFooter(`Total de respetos: ${contador.get('contadorF')}`);
         
-    };
+            return message.channel.send({embed});
+        }
+    }
+    catch (e) {
+        console.error('ERROR EN LA BASE DE DATOS:' + e)
+    }
+};
 }
 
 module.exports.help = {
