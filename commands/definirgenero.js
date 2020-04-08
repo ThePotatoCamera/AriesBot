@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
                     }
                 })
                 tablas.tablaGeneros.sync();
-                return message.channel.send(`Se ha definido el genero de ${message.author} a **${nuevoGenero.get('descripcionGenero')}**.`);
+                return message.channel.send(`Se ha definido el género de ${message.author} a **${nuevoGenero.get('descripcionGenero')}**.`);
             };
         };
     };
@@ -41,6 +41,14 @@ module.exports.run = async (bot, message, args) => {
             case 'chico':
                 return genero = 1;
             case 'chica':
+                return genero = 2;
+            case 'chicos':
+                return genero = 1;
+            case 'chicas':
+                return genero = 2;
+            case 'hombres': 
+                return genero = 1;
+            case 'mujeres':
                 return genero = 2;
             default:
                 return genero = 0;
