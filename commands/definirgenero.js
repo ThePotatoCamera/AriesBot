@@ -21,8 +21,13 @@ module.exports.run = async (bot, message, args) => {
         if (e.name === 'SequelizeUniqueConstraintError') {
             const registroAfectado = await tablas.tablaGeneros.update({ genero: numeroGenero, descripcionGenero: descripcionGenero}, { where: {IDusuario: message.author.id } });
             if (registroAfectado > 0) {
+                const nuevoGenero = await tablas.tablaGeneros.findOne({
+                    where: {
+                        IDusuario: message.author.id
+                    }
+                })
                 tablas.tablaGeneros.sync();
-                return message.channel.send(`Se ha definido el genero de ${message.author} a **${registro.descripcionGenero}**.`);
+                return message.channel.send(`Se ha definido el genero de ${message.author} a **${nuevoGenero.get('descripcionGenero')}**.`);
             };
         };
     };
