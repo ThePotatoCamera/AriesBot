@@ -1,4 +1,4 @@
-module.exports.run = async (bot, message) => {
+module.exports.run = async (bot, message, client) => {
 
 	const server = client.guilds.get('678282402979905547');
     const staff = server.roles.get('681152401109024781');
