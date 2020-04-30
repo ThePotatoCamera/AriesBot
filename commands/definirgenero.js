@@ -6,7 +6,9 @@ module.exports.run = async (bot, message, args) => {
 
     /* if (!args) {
         return message.channel.send('Debes especificar un genero (chico o chica).')
-    } */
+    } 
+    Despreciado, se tomará como que no quiere un genero y se hace reset.
+    */
 
     try {
         const registro = await tablas.tablaGeneros.create ({
