@@ -1,0 +1,44 @@
+module.exports.run = async (bot, message, args) => {
+    const defaultPrefix = 'd!';
+    const tablas = require('../index.js');
+
+    if (!member.hasPermission('MANAGE_GUILD')) return message.channel.send('Necesitas permisos de administrar servidor. Si crees que es un error, contacta con los administradores.');
+    if (!args) {
+        setPrefix(defaultPrefix);
+    }
+    else if (args[0].length <= 3) {
+        setPrefix(args[0])
+    }
+    else {
+        message.channel.send('El prefijo no puede ser mayor a 3 carácteres.');
+    }
+
+    async function setPrefix(prefix) {
+        try {
+            const registro = await tablas.tablaPrefixes.create({
+                IDservidor: message.guild.id,
+                prefix: prefix
+            });
+            tablas.tablaPrefixes.sync();
+            message.channel.send(`Se ha configurado el prefix a **${registro.get('prefix')}**.`);
+        }
+        catch (e) {
+            if (e.name === 'SequelizeUniqueConstraintError') {
+                    const registroAfectado = await tablas.tablaPrefixes.update({prefix: prefix}, {where:{IDservidor: message.guild.id}});
+                    if (registroAfectado > 0) {
+                        const nuevoPrefix = await tablas.tablaPrefixes.findOne({
+                            where: {
+                                IDservidor: message.guild.id
+                            }
+                        });
+                        tablas.tablaPrefixes.sync();
+                        message.channel.send(`Se ha configurado el prefix a **${nuevoPrefix.get('prefix')}**.`)
+                };
+            };
+        };
+    };
+};
+
+module.exports.help = {
+    name: "prefijo"
+}
