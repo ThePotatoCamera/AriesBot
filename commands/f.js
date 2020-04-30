@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
         }
         else {
             const contador = await tablas.tablaF.create ({
-                contadorF: 0,
+                contadorF: 1,
             });
             contador.increment('contadorF')
             tablas.tablaF.sync();
