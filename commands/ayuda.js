@@ -3,13 +3,31 @@ const botconfig = require("../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
 
-        const categoria = `${args[0]}`.toLowerCase();
+        let categoria = `${args[0]}`.toLowerCase();
+
+        let pagina = parseInt(args[1], 10);
+        if (!args[1]) {
+            pagina = 1;
+        }
+        else {
+            if (categoria == 'social' && pagina > 3) {
+                pagina = 3;
+            }
+        }
+        categoria = `${categoria + pagina}`;
+
         switch (categoria) {
             case 'bot':
                 categoriaBot();
                 return;
-            case 'social':
-                categoriaSocial();
+            case 'social1':
+                categoriaSocial1();
+                return;
+            case 'social2':
+                categoriaSocial2();
+                return;
+            case 'social3':
+                categoriaSocial3();
                 return;
             case 'entretenimiento':
                 categoriaEntretenimiento();
@@ -34,6 +52,7 @@ module.exports.run = async (bot, message, args) => {
                 return;    
           
             }
+
             const mainEmbed = new Discord.RichEmbed()
                 .setTitle('Categorias de la ayuda')
                 .setDescription(`Prefijo: d! *Sintaxis: <obligatorio> [opcional]*`)
@@ -75,7 +94,7 @@ module.exports.run = async (bot, message, args) => {
             message.delete(60000)
             }
         
-            function categoriaSocial() {
+            function categoriaSocial1() {
                 const socialEmbed = new Discord.RichEmbed()
                     .setTitle('Comandos sociales')
                     .setColor(0xefb810)
@@ -89,6 +108,18 @@ module.exports.run = async (bot, message, args) => {
                     .addField(`feliz:`,`Te pones feliz. ***Sintaxis: d!feliz [@usuario]***`)
                     .addField(`bailar:`,`Te pones a bailar. ***Sintaxis: d!bailar [@usuario]***`)
                     .addField(`fail:`,`Muestas que as cometido un fail. ***Sintaxis: d!fail [@usuario]***`)
+                    .setFooter('Siguiente página: d!ayuda social 2')
+                    .setTimestamp();
+        
+                message.channel.send(socialEmbed)
+                .then(newMessage => newMessage.delete(78000));
+            message.delete(78000)
+            }
+
+            function categoriaSocial2() {
+                const socialEmbed = new Discord.RichEmbed()
+                    .setTitle('Comandos sociales')
+                    .setColor(0xefb810)
                     .addField(`enfadado:`,`Muestas tu enfado. ***Sintaxis: d!enfadado [@usuario]***`)
                     .addField(`correr:`,`Corres. ***Sintexis: d!correr [@usuario]***`)
                     .addField(`despertar`,`Muestras que te as despertado. ***Sintaxis: d!despertar [@usuario]***`)
@@ -99,8 +130,22 @@ module.exports.run = async (bot, message, args) => {
                     .addField(`tocar:`,`Tocas a quien mecionas.  ***Sintaxis: d!tocar [@usuario]***`)
                     .addField(`acariciar:`,`Acaricias a quien mencionas.  ***Sintaxis: d!acariciar [@usuario]***`)
                     .addField("asustar",`Asustas a quién mencionas.  ***Sintaxis: d!asustar [@usuario]***`)
+                    .setFooter('Siguiente página: d!ayuda social 3')
+                    .setTimestamp();
+        
+                message.channel.send(socialEmbed)
+                .then(newMessage => newMessage.delete(78000));
+            message.delete(78000)
+            }
+
+            function categoriaSocial3() {
+                const socialEmbed = new Discord.RichEmbed()
+                    .setTitle('Comandos sociales')
+                    .setColor(0xefb810)
                     .addField("tonto","Llamas tonto a quién mencionas.  ***Sintaxis: d!tonto [@usuario]***")
                     .addField("felicidades","Felicitas a quién mencionas.  ***Sintaxis: d!felicidades [@usuario]***")
+                    .addField('definirgenero', 'Define tu genero para ciertos comandos. ***Sintaxis: d!definirgenero [chico | chica]***')
+                    .addField('f', 'Paga tus respetos. ***Sintaxis: d!f***')
                     .setTimestamp();
         
                 message.channel.send(socialEmbed)
