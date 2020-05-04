@@ -8,8 +8,16 @@ const token = process.env.TOKEN;
 const Sequelize = require('sequelize');
 const prefix = 'd!';
 
-// Configuracion de la DB
-const sequelize = new Sequelize(process.env.DATABASE_URI, {
+// Configuracion de la DB (Nota: pasar a SQLite para testeo.)
+const sequelize = new Sequelize('database', 'user', 'password', {
+  host: 'localhost',
+  dialect: 'sqlite',
+  logging: false,
+  // Config exclusiva SQLite
+  storage: 'database.sqlite'
+});
+
+/* const sequelize = new Sequelize(process.env.DATABASE_URI, {
   dialect: 'postgres',
   protocol: 'postgres',
   dialectOptions: {
@@ -18,9 +26,7 @@ const sequelize = new Sequelize(process.env.DATABASE_URI, {
     },
   },
   logging: false,
-  // Config exclusiva SQLite
-  // storage: 'database.sqlite'
-});
+}); */
 
 // Definición de tablas de la DB
 const tablaGeneros = sequelize.define('generos', {
@@ -95,7 +101,7 @@ afk = new Map();
 bot.on("message", async message => {
 
       if(!message.content.startsWith(prefix)) return;
-      if (message.author.bot == true) return;
+      if (message.author.bot == true || message.author.system == true) return;
       let messageArray = message.content.split(" ");
       let cmd = messageArray[0];
       let args = messageArray.slice(1);
