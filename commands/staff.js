@@ -3,12 +3,11 @@ const Discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
 
  const embed = new Discord.RichEmbed() 
-.setTitle("Este es el staff del bot:")
+.setTitle("Aries es posible a estas personas:")
 .setColor(0x00AE86)
-.addField("PokeToribio:","Dev") 
-.addField("MarisaTheKiller:","Diseñadora y ayudante")  
-.addField("ThePotatoCamera", "Dev y gran profesor xD") 
-.setFooter("Mensaje enviado")
+.addField("PokeToribio","Dev <:Verificado:681246902636904450>") 
+.addField("MarisaTheKiller","Diseñadora y ayudante <:Verificado:681246902636904450>")  
+.addField("ThePotatoCamera", "Dev <:Verificado:681246902636904450>") 
 .setTimestamp()
 
 message.channel.send({embed});  
