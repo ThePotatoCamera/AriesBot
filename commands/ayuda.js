@@ -1,5 +1,4 @@
 const Discord = require(`discord.js`);
-const botconfig = require("../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
 
@@ -15,6 +14,8 @@ module.exports.run = async (bot, message, args) => {
             }
         }
         categoria = `${categoria + pagina}`;
+
+        if (message.channel.name !== undefined) { message.react('📬') };
 
         switch (categoria) {
             case 'bot':
@@ -68,9 +69,8 @@ module.exports.run = async (bot, message, args) => {
                 .addBlankField()
                 .setFooter('Para ver los comandos de cada categoría,Pon el nombre de la categoria despues del comando')
                 .setTimestamp();
-            message.channel.send(mainEmbed)
-            .then(newMessage => newMessage.delete(60000));
-            message.delete(60000)
+            message.author.send(mainEmbed);
+            
         
             function categoriaBot() {
                 const botEmbed = new Discord.RichEmbed()
@@ -89,9 +89,7 @@ module.exports.run = async (bot, message, args) => {
                     .addField(`reportar`,`Envia el reporte que agas al canal #reportes en el discord de soporte.   ***Sintaxis: d!reportar <reporte>***`)
                     .setTimestamp();
         
-                message.channel.send(botEmbed)
-                .then(newMessage => newMessage.delete(60000));
-            message.delete(60000)
+                message.author.send(botEmbed);
             }
         
             function categoriaSocial1() {
@@ -111,9 +109,7 @@ module.exports.run = async (bot, message, args) => {
                     .setFooter('Siguiente página: d!ayuda social 2')
                     .setTimestamp();
         
-                message.channel.send(socialEmbed)
-                .then(newMessage => newMessage.delete(78000));
-            message.delete(78000)
+                message.author.send(socialEmbed)
             }
 
             function categoriaSocial2() {
@@ -133,9 +129,7 @@ module.exports.run = async (bot, message, args) => {
                     .setFooter('Siguiente página: d!ayuda social 3')
                     .setTimestamp();
         
-                message.channel.send(socialEmbed)
-                .then(newMessage => newMessage.delete(78000));
-            message.delete(78000)
+                message.author.send(socialEmbed);
             }
 
             function categoriaSocial3() {
@@ -148,9 +142,7 @@ module.exports.run = async (bot, message, args) => {
                     .addField('f', 'Paga tus respetos. ***Sintaxis: d!f***')
                     .setTimestamp();
         
-                message.channel.send(socialEmbed)
-                .then(newMessage => newMessage.delete(78000));
-            message.delete(78000)
+                message.author.send(socialEmbed);
             }
         
             function categoriaEntretenimiento(){
@@ -169,13 +161,12 @@ module.exports.run = async (bot, message, args) => {
                     .addField(`spoiler:`,`Es como el comando **decir** pero pone todo con spoiler (||asi||). ***Sintaxis: d!spoiler <frase,palabra o numero>***`)
                     .setTimestamp();
         
-                message.channel.send(funEmbed)
-                .then(newMessage => newMessage.delete(60000));
-            message.delete(60000)
+                message.author.send(funEmbed);
+            
             }
         
             function categoriaNsfw() {
-                if (message.channel.nsfw === false) return message.channel.send(`${message.author}, <:NO_NSFW:681246772290781237> ***no puedo mostrar contenido NSFW fuera de los canales NSFW.*** <:NO_NSFW:681246772290781237>`)
+                if (message.channel.nsfw === false) return message.author.send(`${message.author}, <:NO_NSFW:681246772290781237> ***no puedo mostrar contenido NSFW fuera de los canales NSFW.*** <:NO_NSFW:681246772290781237>`)
                 const proEmbed = new Discord.RichEmbed()
                     .setTitle(`Comandos NSFW:`)
                     .setColor(0xefb810)
@@ -185,9 +176,8 @@ module.exports.run = async (bot, message, args) => {
                     .addField(`ariesdicensfw`,`Es como el "Simon dice" pero con aries y con cosas NSFW (+18)  ***Sintaxis: d!ariesdicensfw***`)
                     .setTimestamp();
         
-                message.channel.send(proEmbed)
-                .then(newMessage => newMessage.delete(60000));
-            message.delete(60000)
+                message.author.send(proEmbed);
+            
             }
         
             function categoriaModeracion() {
@@ -198,9 +188,8 @@ module.exports.run = async (bot, message, args) => {
                     .addField(`bdecir`,`Igual que el decir del entretenimiento pero borra el comando puesto. ***Sintaxis: d!decir <frase,palabra o numero>***`)
                     .setTimestamp();
         
-                message.channel.send(otherEmbed)
-                .then(newMessage => newMessage.delete(60000));
-            message.delete(60000)
+                message.author.send(otherEmbed);
+            
             }
         
             function categoriaUtiles() {
@@ -215,9 +204,8 @@ module.exports.run = async (bot, message, args) => {
                         .addField(`codigo`,`Genera un codigo aleatorio en forma de XXXX**-**XXXX**-**XXXX.  ***Sintaxis: d!codigo***`)
                         .setTimestamp();
         
-                    message.channel.send(suEmbed)
-                    .then(newMessage => newMessage.delete(60000));
-            message.delete(60000)
+                    message.author.send(suEmbed);
+            
                 }
 
                 function categoriaAnimales(){
@@ -227,9 +215,8 @@ module.exports.run = async (bot, message, args) => {
                     .addField("gato","Envia gifs y fotos de gatos  ***Sintaxis: d!gato")
                     .addField("perro","Envia gifs y fotos de perros  ***Sintaxis: d!perro")
                     .setTimestamp();
-                    message.channel.send(animales)
-                    .then(newMessage => newMessage.delete(60000));
-            message.delete(60000)
+                    message.author.send(animales);
+            
                 }
 
                 function categoriastaffbot() {
@@ -242,9 +229,8 @@ module.exports.run = async (bot, message, args) => {
                         .addField(`privado`,`envia un mensaje privado a la persona que menciones o des su ID`)
                         .setTimestamp();
         
-                    message.channel.send(staffbot)
-                    .then(newMessage => newMessage.delete(60000));
-            message.delete(60000)
+                    message.author.send(staffbot);
+            
                 }
             }
                 module.exports.help = {
