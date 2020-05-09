@@ -1,12 +1,17 @@
 require('dotenv').config();
 const botconfig = require("./botconfig.json");
-const Discord = require("discord.js");
-const bot = new Discord.Client({disableEveryone: true});
-bot.commands = new Discord.Collection();
+const { Client, Intents } = require("discord.js");
 const config = require("./botconfig.json");
 const token = process.env.TOKEN;
 const Sequelize = require('sequelize');
 const prefix = 'd!';
+
+// Intents solicitados al Gateway
+const intents = new Intents();
+intents.add('GUILD_PRESENCES', 'GUILD_MEMBERS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS');
+
+// Crear el cliente y la colección de comandos
+const bot = new Client({disableEveryone: true}, {ws: { intents: intents}});
 
 // Configuracion de la DB (Nota: pasar a SQLite para testeo.)
 const sequelize = new Sequelize('database', 'user', 'password', {
@@ -81,14 +86,13 @@ fs.readdir("./commands/", (err, files) => {
     let props = require(`./commands/${f}`);
     if (f.endsWith('.js')) {
     console.log(`${f} cargado.`);
-    bot.commands.set(props.help.name, props);
     }
     else console.warn(`! Se ha ignorado el archivo ${f}`);
   });
 
 });
 bot.on("ready", async () => {
-  console.log(`${bot.user.username} está en linea, dando servicio a ${bot.guilds.size} servidores.`);
+  console.log(`${bot.user.username} está en linea, dando servicio a ${bot.guilds.cache.size} servidores.`);
   bot.user.setActivity(`Versión: ${botconfig.longVersion}`, {type: "WATCHING"});
 
 

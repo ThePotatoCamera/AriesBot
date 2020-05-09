@@ -22,13 +22,13 @@
   "license": "AGPL-3.0-only",
   "homepage": "https://poketoribio.github.io/",
   "dependencies": {
-    "discord.js": "^11.5.1",
+    "discord.js": "^12.2.0",
     "discordjs-bot-framework": "^1.9.94",
     "dotenv": "^8.2.0",
-    "pg": "^8.0.3",
+    "pg": "^8.1.0",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^5.21.5",
-    "sqlite3": "^4.1.1"
+    "sequelize": "^5.21.7",
+    "sqlite3": "^4.2.0"
   },
   "bugs": {
     "url": "https://github.com/PokeToribio/AriesBot/issues"
