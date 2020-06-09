@@ -12,7 +12,7 @@ exports.run = async (client, message, args) => {
 			let user = message.mentions.members.first()
       		if (!user) return message.channel.send("Por favor, menciona a alguien.");
 	  		const randomImage = await randomItem(message.author.id);		
-	  		const embed = new Discord.RichEmbed()
+	  		const embed = new Discord.MessageEmbed()
 				.setColor(0xefb810)
 				.setDescription(`${message.author} le está comiedo todo a ${mention}.`)
 				.setImage(randomImage);

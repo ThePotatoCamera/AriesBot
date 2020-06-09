@@ -54,11 +54,11 @@ module.exports.run = async (bot, message, args) => {
           
             }
 
-            const mainEmbed = new Discord.RichEmbed()
+            const mainEmbed = new Discord.MessageEmbed()
                 .setTitle('Categorias de la ayuda')
                 .setDescription(`Prefijo: d! *Sintaxis: <obligatorio> [opcional]*`)
                 .setColor(0xefb810)
-                .addBlankField()
+                .addField('===', '---')
                 .addField('Bot', 'Comandos relacionados con el bot.')
                 .addField('NSFW', 'Comandos NSFW. (+18)')
                 .addField('Social', 'Comandos sociales.')
@@ -66,14 +66,14 @@ module.exports.run = async (bot, message, args) => {
                 .addField('Utiles', 'Comandos utiles')
                 .addField("Animales","Comandos donde se envian gifs y fotos del animal que quieres")
                 .addField('Moderacion','Comandos de moderacion')
-                .addBlankField()
+                .addField('===', '---')
                 .setFooter('Para ver los comandos de cada categoría,Pon el nombre de la categoria despues del comando')
                 .setTimestamp();
             message.author.send(mainEmbed);
             
         
             function categoriaBot() {
-                const botEmbed = new Discord.RichEmbed()
+                const botEmbed = new Discord.MessageEmbed()
                     .setTitle('Comandos de informacion sobre el bot')
                     .setColor(0xefb810)
                     .addField(`ayuda`,`Pone este mismo mensaje con la ayuda de todos los comandos. ***Sintaxis: d!ayuda [categoria]***`)
@@ -93,7 +93,7 @@ module.exports.run = async (bot, message, args) => {
             }
         
             function categoriaSocial1() {
-                const socialEmbed = new Discord.RichEmbed()
+                const socialEmbed = new Discord.MessageEmbed()
                     .setTitle('Comandos sociales')
                     .setColor(0xefb810)
                     .addField(`besar:`,`Besas a quién mencionas. ***Sintaxis: d!besar [@usuario]***`)
@@ -113,7 +113,7 @@ module.exports.run = async (bot, message, args) => {
             }
 
             function categoriaSocial2() {
-                const socialEmbed = new Discord.RichEmbed()
+                const socialEmbed = new Discord.MessageEmbed()
                     .setTitle('Comandos sociales')
                     .setColor(0xefb810)
                     .addField(`enfadado:`,`Muestas tu enfado. ***Sintaxis: d!enfadado [@usuario]***`)
@@ -133,7 +133,7 @@ module.exports.run = async (bot, message, args) => {
             }
 
             function categoriaSocial3() {
-                const socialEmbed = new Discord.RichEmbed()
+                const socialEmbed = new Discord.MessageEmbed()
                     .setTitle('Comandos sociales')
                     .setColor(0xefb810)
                     .addField("tonto","Llamas tonto a quién mencionas.  ***Sintaxis: d!tonto [@usuario]***")
@@ -146,7 +146,7 @@ module.exports.run = async (bot, message, args) => {
             }
         
             function categoriaEntretenimiento(){
-                const funEmbed = new Discord.RichEmbed()
+                const funEmbed = new Discord.MessageEmbed()
                     .setTitle('Comandos de entretenimiento')
                     .setColor(0xefb810)
                     .addField(`bola8`,`Te contesta a una pregunta de sí o no. ***Sintaxis: d!bola8 <pregunta>***`)
@@ -167,7 +167,7 @@ module.exports.run = async (bot, message, args) => {
         
             function categoriaNsfw() {
                 if (message.channel.nsfw === false) return message.author.send(`${message.author}, <:NO_NSFW:681246772290781237> ***no puedo mostrar contenido NSFW fuera de los canales NSFW.*** <:NO_NSFW:681246772290781237>`)
-                const proEmbed = new Discord.RichEmbed()
+                const proEmbed = new Discord.MessageEmbed()
                     .setTitle(`Comandos NSFW:`)
                     .setColor(0xefb810)
                     .addField(`follar:`,`Follar con quien mencionas.  ***Sintaxis: d!follar <@usuario>***`)
@@ -181,7 +181,7 @@ module.exports.run = async (bot, message, args) => {
             }
         
             function categoriaModeracion() {
-                const otherEmbed = new Discord.RichEmbed()
+                const otherEmbed = new Discord.MessageEmbed()
                 .setTitle(`Comandos de moderacion:`)
                     .setColor(0xefb810)
                     .addField(`borrar:`,`Borra el numero de mensajes que definas. ***Sintaxis: d!borrar <numero>***`)
@@ -193,7 +193,7 @@ module.exports.run = async (bot, message, args) => {
             }
         
             function categoriaUtiles() {
-                    const suEmbed = new Discord.RichEmbed()
+                    const suEmbed = new Discord.MessageEmbed()
                         .setTitle('Comandos utiles')
                         .setColor(0xefb810)
                         .addField(`redes`,`Te muestra las redes sociales de AriesBot. ***Sintaxis: d!redes***`)
@@ -209,7 +209,7 @@ module.exports.run = async (bot, message, args) => {
                 }
 
                 function categoriaAnimales(){
-                    const animales = new Discord.RichEmbed()
+                    const animales = new Discord.MessageEmbed()
                     .setTitle("Comandos de animales")
                     .setColor(0xefb810)
                     .addField("gato","Envia gifs y fotos de gatos  ***Sintaxis: d!gato")
@@ -220,7 +220,7 @@ module.exports.run = async (bot, message, args) => {
                 }
 
                 function categoriastaffbot() {
-                    const staffbot = new Discord.RichEmbed()
+                    const staffbot = new Discord.MessageEmbed()
                         .setTitle('Comandos para sl staff del bot')
                         .setColor(0xefb810)
                         .addField(`recargar:`,`Recarga el comando deseado.`)
