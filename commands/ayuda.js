@@ -1,7 +1,7 @@
 const Discord = require(`discord.js`);
 const botconfig = require("../botconfig.json");
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (client, message, args) => {
 
         const categoria = `${args[0]}`.toLowerCase();
         switch (categoria) {
@@ -30,13 +30,8 @@ module.exports.run = async (bot, message, args) => {
                 return;
             
             case 'staffbot':
-                if (message.author.id == botconfig.ownerID || message.author.id == botconfig.owner2ID) {
-               categoriastaffbot();
-                }
-                else {
-                return message.author.send('Lo siento, no tienes acceso a esta categoría.');
-                }    
-          
+               categoriastaffbot();  
+               return;
             }
             const mainEmbed = new Discord.RichEmbed()
                 .setTitle('Categorías de la ayuda.')
@@ -191,20 +186,22 @@ module.exports.run = async (bot, message, args) => {
                 }
 
                 function categoriastaffbot() {
+                    const server = client.guilds.get('678282402979905547');
+                    const staff = server.roles.get('681152401109024781');
+                    if (server.member(message.author).roles.some(r => [staff].includes(r))) {
                     const staffbot = new Discord.RichEmbed()
-                        .setTitle('Comandos para sl staff del bot.')
-                        .setColor(0xefb810)
-                        .addField(`recargar:`,`Recarga el comando deseado.`)
-                        .addField(`reiniciar:`,`Reinicia el bot.`)
-                        .addField(`nombreservidores:`,`Envía un mensaje con el nombre de todos los servidores en los que esta el bot.`)
-                        .addField(`privado`,`Envía un mensaje privado a la persona que menciones o des su ID.`)
-                        .setTimestamp();
+                    .setTitle('Comandos para el staff del bot.')
+                    .setColor(0xefb810)
+                    .addField(`recargar:`,`Recarga el comando deseado.`)
+                    .addField(`reiniciar:`,`Reinicia el bot.`)
+                    .addField(`privado`,`Envía un mensaje privado a la persona que menciones o des su ID.`)
+                    .setTimestamp();
         
-                    message.channel.send(staffbot)
-                    .then(newMessage => newMessage.delete(60000));
-            message.delete(60000)
+                message.channel.send(staffbot)
+                .then(newMessage => newMessage.delete(60000));
+                }else return message.channel.send("Comando disponible solo para el staff de Aries Bot")
                 }
             }
                 module.exports.help = {
                     name: `ayuda`
-                  }
+                }
