@@ -30,25 +30,28 @@ module.exports.run = async (bot, message, args) => {
             case 'social3':
                 categoriaSocial3();
                 return;
-            case 'entretenimiento':
+            case 'entretenimiento1':
                 categoriaEntretenimiento();
                 return;
-            case 'moderacion':
+            case 'moderacion1':
                 categoriaModeracion();
                 return;
-            case 'nsfw':
+            case 'moderación1':
+                categoriaModeracion();
+                return;
+            case 'nsfw1':
                categoriaNsfw();
                 return;
         
-            case 'utiles':
+            case 'utiles1':
                categoriaUtiles();
                 return;
 
-            case `animales`:
+            case `animales1`:
                 categoriaAnimales();
                 return;
             
-            case 'staffbot':
+            case 'staffbot1':
                categoriastaffbot();
                 return;    
           
@@ -182,10 +185,10 @@ module.exports.run = async (bot, message, args) => {
         
             function categoriaModeracion() {
                 const otherEmbed = new Discord.MessageEmbed()
-                .setTitle(`Comandos de moderacion:`)
+                .setTitle(`Comandos de moderación:`)
                     .setColor(0xefb810)
-                    .addField(`borrar:`,`Borra el numero de mensajes que definas. ***Sintaxis: d!borrar <numero>***`)
-                    .addField(`bdecir`,`Igual que el decir del entretenimiento pero borra el comando puesto. ***Sintaxis: d!decir <frase,palabra o numero>***`)
+                    .addField(`borrar:`,`Borra el numero de mensajes que definas. ***Sintaxis: d!borrar <número>*** \n __**Nota: El límite de tiempo para borrar mensajes son 14 días.**__`)
+                    .addField(`bdecir`,`Igual que el decir del entretenimiento pero borra el comando puesto. ***Sintaxis: d!decir <frase,palabra o número>***`)
                     .setTimestamp();
         
                 message.author.send(otherEmbed);
