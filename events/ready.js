@@ -5,7 +5,7 @@ exports.run = async (bot) => {
     bot.user.setPresence({
         activity: {
             name: `Ayuda: ${config.prefix}ayuda`,
-            type: 'LISTENING',
+            type: 'PLAYING',
         },
         status: 'online',
     });
