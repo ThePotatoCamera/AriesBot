@@ -1,10 +1,8 @@
 require('dotenv').config();
-const botconfig = require("./botconfig.json");
 const { Client, Intents } = require("discord.js");
 const config = require("./botconfig.json");
 const token = process.env.TOKEN;
 const Sequelize = require('sequelize');
-const prefix = 'd!';
 
 // Intents solicitados al Gateway
 const intents = new Intents();
@@ -50,23 +48,10 @@ const tablaF = sequelize.define('respects', {
   contadorF: Sequelize.INTEGER
 });
 
-/* const tablaPrefixes = sequelize.define('prefixes', {
-  IDservidor: {
-    type: Sequelize.STRING,
-    unique: true,
-  },
-  prefix: {
-    type: Sequelize.STRING,
-    defaultValue: 'd!'
-  }
-
-}) */
-
 // Sincronizar las tablas
 
 tablaGeneros.sync();
 tablaF.sync();
-// tablaPrefixes.sync();
 
 // Servicio de comandos
 
@@ -111,29 +96,7 @@ afk = new Map();
 
 exports.tablaGeneros = tablaGeneros;
 exports.tablaF = tablaF;
-// exports.tablaPrefixes = tablaPrefixes;
 
 // Login
 
 bot.login(token);
-
-// Funciones adicionales
-
-/* async function setPrefix() {
-  try {
-    const registro = await tablaPrefixes.findOne({
-      where: {
-        IDservidor: message.guild.id
-      }
-    });
-    if (!registro) {
-      return prefix = 'd!'
-    }
-    else {
-    return prefix = registro.get('prefix');
-    }
-  }
-  catch (e) {
-    return console.error('Error al cargar el prefix de la base de datos: ' + e);
-  }
-} */
