@@ -103,13 +103,6 @@ fs.readdir('./events', (err, files) => {
 });
 console.info('[BOOT] Se ha iniciado el servicio de eventos.');
 
-// Cuando el bot inicie
-
-bot.on("ready", async () => {
-  console.log(`${bot.user.username} está en linea, dando servicio a ${bot.guilds.cache.size} servidores.`);
-  bot.user.setActivity(`Versión: ${botconfig.longVersion}`, {type: "WATCHING"});
-});
-
 // Cerar mapa de AFKs
 
 afk = new Map();

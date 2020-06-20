@@ -1,11 +1,11 @@
-exports.run = (bot) => {
+exports.run = async (bot) => {
 
     const config = require('../botconfig.json');
 
     bot.user.setPresence({
-        game: {
-            name: `Versión: ${config.longVersion}`,
-            type: 'WATCHING',
+        activity: {
+            name: `Ayuda: ${config.prefix}ayuda`,
+            type: 'LISTENING',
         },
         status: 'online',
     });
@@ -15,4 +15,5 @@ exports.run = (bot) => {
     delete require.cache[require.resolve('../commands/recargar.js')];
     console.log('[BOOT] Se ha recargado el comando de reiniciar.');
     console.log(`[INFO] Bot cargado con éxito, ejecutando versión ${config.longVersion}. Sirviendo a ${bot.guilds.cache.size} servidores.`);
+    console.log(`[INFO] Prefix predeterminado: ${config.prefix}`);
 };
