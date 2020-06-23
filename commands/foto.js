@@ -5,22 +5,22 @@ module.exports.run = async (bot, message, args) => {
  
 
     let miembro = message.mentions.users.first()
-    if (!miembro) {
-        const embed = new Discord.RichEmbed()
-            .setImage(`${message.author.avatarURL}`)
+    if (!message.mentions.users.size) {
+        const embed = new Discord.MessageEmbed()
+            .setImage(`${message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 })}`)
             .setColor(0x66b3ff)
             .setFooter(`Foto de ${message.author.tag}`);
-        message.channel.send({ embed });
+        return message.channel.send({ embed });
     
     } else {
-        const embed = new Discord.RichEmbed()
-            .setImage(`${miembro.avatarURL}`)
+        const embed = new Discord.MessageEmbed()
+            .setImage(`${miembro.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 })}`)
             .setColor(0x66b3ff)
             .setFooter(`Foto de ${miembro.tag}`)
             .setTimestamp()
             
     
-        message.channel.send({ embed });
+        return message.channel.send({ embed });
     }
   
 }
