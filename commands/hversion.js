@@ -1,9 +1,8 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, botconfig) => {
-    const embed = new Discord.RichEmbed() 
+    const embed = new Discord.MessageEmbed() 
     .setTitle("Este es el historial de versiones:")
-    .addBlankField()
     .setColor(0x00AE86)
     .addField("1.0.0:", "Cambio de host, añadidos más GIFs, cambio interno en el comando `ayuda` y arreglados bugs. **(He empezado de nuevo el orden de versiones porque se estaba usando mal)**.")
     .addField("2.0.0:", "Cambiado el sistema de comandos y arreglados bugs.")

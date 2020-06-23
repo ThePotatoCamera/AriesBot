@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
 
     let result = Math.floor((Math.random() * replies.length))
 
-    let ballembed = new Discord.RichEmbed()
+    let ballembed = new Discord.MessageEmbed()
     .setColor("#efb810")
     .addField("Emoticono aleatorio:",replies[result])
     .setFooter("Mensaje enviado")

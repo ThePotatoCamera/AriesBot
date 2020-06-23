@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     let result = Math.floor((Math.random() * replies.length))
     let quiestion = args.slice(0).join(" ")
 
-    let ballembed = new Discord.RichEmbed()
+    let ballembed = new Discord.MessageEmbed()
     .setColor("#efb810")
     .addField("Pregunta:", quiestion)
     .addField("Respuesta:", replies[result])

@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 		const config = require('../botconfig.json');
 		const ping = Math.round(client.ping);
 	
-		const embed = new Discord.RichEmbed()
+		const embed = new Discord.MessageEmbed()
 			.setTitle(`Información de: **__${client.user.username}__**`)
 			.setThumbnail(client.user.avatarURL)
 			.setColor(0xefb810)

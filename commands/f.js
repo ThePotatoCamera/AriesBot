@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
         if (contador) {
             contador.increment('contadorF');
             tablas.tablaF.sync();
-            const embed = new Discord.RichEmbed()
+            const embed = new Discord.MessageEmbed()
             .setColor(0xaa0000)
             .setTitle('F en el chat')
             .setDescription(`${message.author} ha pagado sus respetos.`)
@@ -28,7 +28,7 @@ module.exports.run = async (bot, message, args) => {
             });
             contador.increment('contadorF')
             tablas.tablaF.sync();
-            const embed = new Discord.RichEmbed()
+            const embed = new Discord.MessageEmbed()
             .setColor(0xaa0000)
             .setTitle('F en el chat')
             .setDescription(`${message.author} ha pagado sus respetos.`)

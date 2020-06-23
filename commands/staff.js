@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
- const embed = new Discord.RichEmbed() 
+ const embed = new Discord.MessageEmbed() 
 .setTitle("Aries es posible a estas personas:")
 .setColor(0x00AE86)
 .addField("PokeToribio","Dev <:Verificado:681246902636904450>") 

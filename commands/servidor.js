@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
 
     if(message.channel.name == undefined) return message.channel.send("Esto es un canal privado")
     var server = message.guild; 
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     .setThumbnail(server.iconURL)
     .setAuthor(server.name, server.iconURL)
     .addField('ID:', server.id, true)

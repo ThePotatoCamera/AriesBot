@@ -7,7 +7,7 @@ exports.run = async (client, message, args) => {
 		}
 		else if (args < 1) {
 			const randomImage = await randomItem(message.author.id);
-			const embed = new Discord.RichEmbed()
+			const embed = new Discord.MessageEmbed()
 				.setColor(0xefb810)
 				.setDescription(`${message.author} se está masturbando.`)
 				.setImage(randomImage);
@@ -18,7 +18,7 @@ exports.run = async (client, message, args) => {
 			const user = message.mentions.members.first()
 				  if (!user) return message.channel.send("Por favor, menciona a alguien.");
 			const randomImage = randomItem(message.author.id);
-			const embed = new Discord.RichEmbed()
+			const embed = new Discord.MessageEmbed()
 				.setColor(0xefb810)
 				.setDescription(`${message.author} se está masturbando pensando en ${mention}.`)
 				.setImage(randomImage);

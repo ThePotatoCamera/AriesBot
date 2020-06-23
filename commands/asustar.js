@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
         const mention = message.mentions.users.first();
 		if (message.author == mention) {
 			const description = await setDescription(message.author);
-			const embed = new Discord.RichEmbed()
+			const embed = new Discord.MessageEmbed()
 				.setColor(0xefb810)
 				.setDescription(description)
 				.setImage(randomItem(images));
@@ -13,7 +13,7 @@ exports.run = async (client, message, args) => {
 			message.channel.send({ embed });
 		}
 		else if (args < 1) {
-			const embed = new Discord.RichEmbed()
+			const embed = new Discord.MessageEmbed()
 				.setColor(0xefb810)
 				.setDescription(`${message.author} asustó a... nadie.`)
 				.setImage(randomItem(images));
@@ -21,14 +21,13 @@ exports.run = async (client, message, args) => {
 			message.channel.send({ embed });
 		}
 		else {
-			const embed = new Discord.RichEmbed()
+			const embed = new Discord.MessageEmbed()
 				.setColor(0xefb810)
 				.setDescription(`${message.author} está asustando a ${mention}, espero que ya no tenga hipo.`)
 				.setImage(randomItem(images));
 
 			message.channel.send({ embed });
 		}
-	  if (!mention) return message.channel.send("Por favor, menciona a alguien.");
 	}
 
 	function randomItem(images) {

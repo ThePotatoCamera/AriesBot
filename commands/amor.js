@@ -65,7 +65,7 @@ module.exports.run = async (bot, message, args) => {
     } 
 
 
-    let ballembed = new Discord.RichEmbed()
+    let ballembed = new Discord.MessageEmbed()
     .setColor("#efb810")
     .setDescription(`La compatibilidad de **${message.author.username}** con **${mention.username}**`)
     .addField(`**Es del**`,`** ${random}% **`)
