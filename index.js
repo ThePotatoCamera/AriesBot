@@ -4,7 +4,6 @@ const config = require("./botconfig.json");
 const token = process.env.TOKEN;
 const Sequelize = require('sequelize');
 
-<<<<<<< HEAD
 // Intents solicitados al Gateway
 const intents = new Intents();
 intents.add('GUILD_PRESENCES', 'GUILD_MEMBERS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS');
@@ -13,19 +12,15 @@ intents.add('GUILD_PRESENCES', 'GUILD_MEMBERS', 'GUILD_MESSAGES', 'GUILD_MESSAGE
 const bot = new Client({disableEveryone: true}, {ws: { intents: intents}});
 
 // Configuracion de la DB (Nota: pasar a SQLite para testeo.)
-const sequelize = new Sequelize('database', 'user', 'password', {
-=======
-// Configuracion de la DB
 /* const sequelize = new Sequelize('database', 'user', 'password', {
->>>>>>> master
   host: 'localhost',
   dialect: 'sqlite',
   logging: false,
   // Config exclusiva SQLite
   storage: 'database.sqlite'
 });
-
-/* const sequelize = new Sequelize(process.env.DATABASE_URI, {
+*/
+const sequelize = new Sequelize(process.env.DATABASE_URI, {
   dialect: 'postgres',
   protocol: 'postgres',
   dialectOptions: {
@@ -34,7 +29,7 @@ const sequelize = new Sequelize('database', 'user', 'password', {
     },
   },
   logging: false,
-}); */
+});
 
 // Definición de tablas de la DB
 const tablaGeneros = sequelize.define('generos', {
@@ -49,18 +44,9 @@ const tablaGeneros = sequelize.define('generos', {
   descripcionGenero: Sequelize.STRING,
 });
 
-<<<<<<< HEAD
 const tablaF = sequelize.define('respects', {
   contadorF: Sequelize.INTEGER
 });
-=======
-tablaGeneros.sync(); */
-
-// Carga de prefix y de comandos y eventos
-
-let prefix = config.prefix;
-const fs = require(`fs`);
->>>>>>> master
 
 // Sincronizar las tablas
 
@@ -107,13 +93,9 @@ console.info('[BOOT] Se ha iniciado el servicio de eventos.');
 afk = new Map();
 
 // Exports de tablas
-<<<<<<< HEAD
 
 exports.tablaGeneros = tablaGeneros;
 exports.tablaF = tablaF;
-=======
-// exports.tablaGeneros = tablaGeneros;
->>>>>>> master
 
 // Login
 
