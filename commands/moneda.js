@@ -11,7 +11,6 @@ module.exports.run = async (bot, message, args) => {
                 .setColor(0xefb810)
                 .setDescription(`${message.author} ha sacado:`)
                 .setImage(randomItem(images))
-                .setFooter("Mensaje enviado")
                 .setTimestamp()
    
             message.channel.send({ embed }); 

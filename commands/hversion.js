@@ -19,6 +19,7 @@ module.exports.run = async (bot, message, botconfig) => {
     .addField("4.3.1", "Quitados los comandos `ban` y `kick` por problemas.")
     .addField("4.4.0", "Añadidos los comandos `ppt`, `spoiler` y `codigo`. Cambiado el link del comando `soporte`.")
     .addField('4.4.1', "Se han realizado correciones ortográficas a todos los comandos.")
+    .addField('4.4.2', 'Se han realizado cambios menores en algunos comandos.')
     .addField('5.0.0', 'Añadido el comando `definirgenero`, `f`. A partir de ahora los GIFs NSFW distinguen según tu género si lo has definido.')
     .setTimestamp()
   

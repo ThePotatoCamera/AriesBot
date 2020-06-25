@@ -7,7 +7,7 @@ exports.run = (client, message, args) => {
 		if (message.author == args[0]) {
 			const embed = new Discord.MessageEmbed()
 				.setColor(0xefb810)
-				.setDescription(`${message.author} se esta acariciendo a si mimo.`)
+				.setDescription(`${message.author} se está acariciendo a sí mismo.`)
 				.setImage(randomItem(images));
 
 			message.channel.send({ embed });
@@ -15,17 +15,17 @@ exports.run = (client, message, args) => {
 		else if (args < 1) {
 			const embed = new Discord.MessageEmbed()
 				.setColor(0xefb810)
-				.setDescription(`${message.author} acaricio a... nadie.`)
+				.setDescription(`${message.author} acaricia al aire.`)
 				.setImage(randomItem(images));
 
 			message.channel.send({ embed });
 		}
 		else {
 			let user = message.mentions.members.first()
-      if (!user) return message.reply("porfavor menciona a alguien");
+      if (!user) return message.reply("Por favor, menciona a alguien.");
 			const embed = new Discord.MessageEmbed()
 				.setColor(0xefb810)
-				.setDescription(`Que bonito ${message.author} esta acariciando a ${mention}.`)
+				.setDescription(`¡Que bonito! ${message.author} está acariciando a ${mention}.`)
 				.setImage(randomItem(images));
 
 			message.channel.send({ embed });

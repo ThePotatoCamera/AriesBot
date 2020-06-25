@@ -2,7 +2,11 @@
     "prefix": "dt!",
     "owner2ID": "464064731330773002",
     "ownerID": "300788490629808129",
+<<<<<<< HEAD
     "longVersion": "5.0.0-v12-testing",
+=======
+    "longVersion": "4.4.2",
+>>>>>>> master
     "suID": "300788490629808129"
 
 }
