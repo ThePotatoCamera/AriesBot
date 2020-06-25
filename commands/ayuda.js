@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
         if (message.channel.name !== undefined) { message.react('📬') };
 
         switch (categoria) {
-            case 'bot':
+            case 'bot1':
                 categoriaBot();
                 return;
             case 'social1':
