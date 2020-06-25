@@ -61,7 +61,6 @@ module.exports.run = async (bot, message, args) => {
                 .setTitle('Categorias de la ayuda')
                 .setDescription(`Prefijo: d! *Sintaxis: <obligatorio> [opcional]*`)
                 .setColor(0xefb810)
-                .addField('===', '---')
                 .addField('Bot', 'Comandos relacionados con el bot.')
                 .addField('NSFW', 'Comandos NSFW. (+18)')
                 .addField('Social', 'Comandos sociales.')
@@ -203,7 +202,7 @@ module.exports.run = async (bot, message, args) => {
                         .addField(`servidor:`,`Te muestra la información del servidor. ***Sintaxis: d!servidor***`)
                         .addField(`usuario:`,`Te muestra la información del usuario mencionado. ***Sintaxis: d!usuario [@usuario]***`)
                         .addField(`afk`,`Sistema afk cuando te mencionan el bot pone el mensaje que definas.  ***Sintaxis: d!afk [razon]***`)
-                        .addField(`foto`,`Manda la foto de perfil del usuario mencionado o la tuya si no mencionas a nadie.   ***Sintaxis: d!foto [@usuario]***`)
+                        .addField(`avatar`,`Manda la foto de perfil del usuario mencionado o la tuya si no mencionas a nadie.   ***Sintaxis: d!foto [@usuario]***`)
                         .addField(`codigo`,`Genera un codigo aleatorio en forma de XXXX**-**XXXX**-**XXXX.  ***Sintaxis: d!codigo***`)
                         .setTimestamp();
         
