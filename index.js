@@ -20,7 +20,7 @@ const bot = new Client({disableEveryone: true}, {ws: { intents: intents}});
   storage: 'database.sqlite'
 });
 */
-const sequelize = new Sequelize(process.env.DATABASE_URI, {
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
   dialect: 'postgres',
   protocol: 'postgres',
   dialectOptions: {
