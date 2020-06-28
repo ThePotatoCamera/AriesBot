@@ -1,19 +1,34 @@
 require('dotenv').config();
-const botconfig = require("./botconfig.json");
-const Discord = require("discord.js");
-const bot = new Discord.Client({disableEveryone: true});
-bot.commands = new Discord.Collection();
+const { Client, Intents } = require("discord.js");
 const config = require("./botconfig.json");
 const token = process.env.TOKEN;
 const Sequelize = require('sequelize');
 
-// Configuracion de la DB
+// Intents solicitados al Gateway
+const intents = new Intents();
+intents.add('GUILD_PRESENCES', 'GUILD_MEMBERS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS');
+
+// Crear el cliente y la colección de comandos
+const bot = new Client({disableEveryone: true}, {ws: { intents: intents}});
+
+// Configuracion de la DB (Nota: pasar a SQLite para testeo.)
 /* const sequelize = new Sequelize('database', 'user', 'password', {
   host: 'localhost',
   dialect: 'sqlite',
   logging: false,
   // Config exclusiva SQLite
   storage: 'database.sqlite'
+});
+*/
+const sequelize = new Sequelize(process.env.DATABASE_URI, {
+  dialect: 'postgres',
+  protocol: 'postgres',
+  dialectOptions: {
+    ssl: {
+    rejectUnauthorized: false
+    },
+  },
+  logging: false,
 });
 
 // Definición de tablas de la DB
@@ -29,57 +44,58 @@ const tablaGeneros = sequelize.define('generos', {
   descripcionGenero: Sequelize.STRING,
 });
 
-tablaGeneros.sync(); */
+const tablaF = sequelize.define('respects', {
+  contadorF: Sequelize.INTEGER
+});
 
-// Carga de prefix y de comandos y eventos
+// Sincronizar las tablas
 
-let prefix = config.prefix;
+tablaGeneros.sync();
+tablaF.sync();
+
+// Servicio de comandos
+
 const fs = require(`fs`);
 
-fs.readdir("./commands/", (err, files) => {
+bot.commands = new Map();
 
-  if(err) console.log(err);
-
-  let jsfile = files.filter(f => f.split(".").pop() === "js")
-  if(jsfile.length <= 0){
-    console.log("No se ha podido encontrar comandos.");
-    return;
-  }
-
-  jsfile.forEach((f, i) =>{
-    let props = require(`./commands/${f}`);
-    console.log(`${f} cargado.`);
-    bot.commands.set(props.help.name, props);
-  });
-
-});
-bot.on("ready", async () => {
-  console.log(`${bot.user.username} está en linea, dando servicio a ${bot.guilds.size} servidores.`);
-  bot.user.setActivity(`Version: ${botconfig.longVersion}`, {type: "WATCHING"});
-
-
+fs.readdir('./commands', (err, files) => {
+	if (err) return console.error('[FS ERROR] ' + err);
+	files.forEach(file => {
+		if (file.endsWith('.ignore')) {
+			const disabledName = file.split('.')[0];
+			console.warn(`[!CMDS!] El comando ${disabledName} se encuentra deshabilitado.`);
+		}
+		else if (!file.endsWith('.js')) return
+		else if (file.endsWith('js')) {
+		const props = require(`./commands/${file}`);
+		const commandName = file.split('.')[0];
+		bot.commands.set(commandName, props);
+		console.info(`[CMDS] Cargado el comando ${commandName}.`);
+		};
+	});
 });
 
-// AFK
+// Servicio de eventos
+
+fs.readdir('./events', (err, files) => {
+	if (err) return console.error(err);
+	files.forEach(file => {
+		const eventFunction = require(`./events/${file}`);
+		const eventName = file.split('.')[0];
+		bot.on(eventName, (...args) => eventFunction.run(bot, ...args));
+	});
+});
+console.info('[BOOT] Se ha iniciado el servicio de eventos.');
+
+// Cerar mapa de AFKs
 
 afk = new Map();
 
-bot.on("message", async message => {
-
-      const botconfig = require("./botconfig.json");
-      if(!message.content.startsWith(prefix))return;
-      if (message.author.bot == true) return;
-      let messageArray = message.content.split(" ");
-      let cmd = messageArray[0];
-      let args = messageArray.slice(1);
-      let commandfile = bot.commands.get(cmd.slice(prefix.length));
-      if(commandfile) commandfile.run(bot,message,args);
-      if(message.isMentioned(bot.user) == args[0]) return;
-
-})
-
 // Exports de tablas
-// exports.tablaGeneros = tablaGeneros;
+
+exports.tablaGeneros = tablaGeneros;
+exports.tablaF = tablaF;
 
 // Login
 

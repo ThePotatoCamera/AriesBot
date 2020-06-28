@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
         const images = ["https://cdn.nekos.life/poke/poke_020.gif","https://cdn.nekos.life/poke/poke_009.gif","https://cdn.nekos.life/poke/poke_021.gif","https://cdn.nekos.life/poke/poke_004.gif"];
 		const mention = message.mentions.members.first();
 		if (message.author == args[0]) {
-			const embed = new Discord.RichEmbed()
+			const embed = new Discord.MessageEmbed()
 				.setColor(0xefb810)
 				.setDescription(`${message.author} se está tocando.`)
 				.setImage(randomItem(images));
@@ -13,7 +13,7 @@ exports.run = (client, message, args) => {
 			message.channel.send({ embed });
 		}
 		else if (args < 1) {
-			const embed = new Discord.RichEmbed()
+			const embed = new Discord.MessageEmbed()
 				.setColor(0xefb810)
 				.setDescription(`${message.author} está tocando al aire.`)
 				.setImage(randomItem(images));
@@ -22,8 +22,8 @@ exports.run = (client, message, args) => {
 		}
 		else {
 			let user = message.mentions.members.first()
-      if (!user) return message.channel.send("Por favor, menciona a alguien.");
-			const embed = new Discord.RichEmbed()
+      if (!user) return message.reply("Por favor, menciona a alguien.");
+			const embed = new Discord.MessageEmbed()
 				.setColor(0xefb810)
 				.setDescription(`${message.author} está tocando a ${mention} para molestar.`)
 				.setImage(randomItem(images));

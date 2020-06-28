@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
 		const images = ["https://media1.tenor.com/images/b190423e95656752e5742d14585b49fa/tenor.gif?itemid=11848501","https://media1.tenor.com/images/536a895d9087d3c1002d1560bde96319/tenor.gif?itemid=4762979","https://media1.tenor.com/images/3b22d6b2a54964ece29cb2ce03684dba/tenor.gif?itemid=10268351","https://media1.tenor.com/images/1db912e6857c86f335d4be139ee4f6ec/tenor.gif?itemid=7296537"];
 		const mention = message.mentions.members.first();
 		if (message.author == args[0]) {
-			const embed = new Discord.RichEmbed()
+			const embed = new Discord.MessageEmbed()
 				.setColor(0xefb810)
 				.setDescription(`${message.author} está confuso.`)
 				.setImage(randomItem(images));
@@ -13,7 +13,7 @@ exports.run = (client, message, args) => {
 			message.channel.send({ embed });
 		}
 		else if (args < 1) {
-			const embed = new Discord.RichEmbed()
+			const embed = new Discord.MessageEmbed()
 				.setColor(0xefb810)
 				.setDescription(`${message.author} está confuso.`)
 				.setImage(randomItem(images));
@@ -22,8 +22,8 @@ exports.run = (client, message, args) => {
 		}
 		else {
 			let user = message.mentions.members.first()
-      if (!user) return message.channel.send("Por favor, menciona a alguien.");
-			const embed = new Discord.RichEmbed()
+      if (!user) return message.reply("Por favor, menciona a alguien.");
+			const embed = new Discord.MessageEmbed()
 				.setColor(0xefb810)
 				.setDescription(`${message.author} está confundiendo a ${mention}.`)
 				.setImage(randomItem(images));

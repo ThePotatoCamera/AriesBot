@@ -6,8 +6,8 @@ module.exports.run = async (bot, message, args) => {
  
     if (message.guild) {
         {
-            const images = ["https://i.ibb.co/CHjQ6Y8/20190416-171429.png","https://i.ibb.co/y54hSzn/20190416-163648.png"];
-            const embed = new Discord.RichEmbed()
+            const images = ["https://i.imgur.com/tB7JOXM.png","https://i.imgur.com/SKYPVuS.png"];
+            const embed = new Discord.MessageEmbed()
                 .setColor(0xefb810)
                 .setDescription(`${message.author} ha sacado:`)
                 .setImage(randomItem(images))

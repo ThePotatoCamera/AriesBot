@@ -14,12 +14,12 @@ exports.run = (client, message, args) => {
 		else {
 			let user = message.mentions.members.first()
 			if (!user) return message.reply("Por favor, menciona a alguien.");
-			const embed = new Discord.RichEmbed()
+			const embed = new Discord.MessageEmbed()
 				.setColor(0xefb810)
-				.setDescription(`${message.author} y ${mention} estan follando.`)
+				.setDescription(`${message.author} y ${mention} están follando.`)
 				.setImage(randomItem(images));
 
-			message.channel.send({ embed });
+			message.channel.send(embed);
 		}
 	}
 

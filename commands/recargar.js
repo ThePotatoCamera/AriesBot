@@ -2,9 +2,9 @@ const Discord = require('discord.js');
 
 exports.run = (client, message, args) => {
 
-       const server = client.guilds.get('678282402979905547');
-       const staff = server.roles.get('681152401109024781');
-       if (server.member(message.author).roles.some(r => [staff].includes(r))) {
+       const server = client.guilds.cache.get('678282402979905547');
+       const staff = server.roles.cache.get('681152401109024781');
+       if (server.member(message.author).roles.cache.some(r => [staff].includes(r))) {
 		if(!args[0]) return message.channel.send("Por favor, pon un comando para recargar.")
 
 		let commandName = args[0].toLowerCase()
