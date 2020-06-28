@@ -35,7 +35,6 @@ module.exports.run = async (bot, message, args) => {
     };
 
     function setGenero(genero) {
-        if (message.author.id == 300788490629808129) return genero = 2;
     switch(genero) {
             case 'hombre': 
                 return genero = 1;
