@@ -227,7 +227,6 @@ module.exports.run = async (client, message, args) => {
                         .setColor(0xefb810)
                         .addField(`recargar:`,`Recarga el comando deseado.`)
                         .addField(`reiniciar:`,`Reinicia el bot.`)
-                        .addField(`nombreservidores:`,`Envía un mensaje con el nombre de todos los servidores en los que esta el bot.`)
                         .addField(`privado`,`Envía un mensaje privado a la persona que menciones o des su ID`)
                         .addField('trucha', 'Solo para Potato, para uso exclusivo con Poke.')
                         .setTimestamp();
