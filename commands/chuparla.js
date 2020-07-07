@@ -1,5 +1,6 @@
 exports.run = async (client, message, args) => {
 	const Discord = require('discord.js');
+	if (!message.guild) return message.channel.send('No puedes ejecutar este comando en un canal privado.');
 	if (message.channel.nsfw === false) return message.channel.send(`${message.author}, <:NO_NSFW:681246772290781237> ***no puedo mostrar contenido NSFW fuera de los canales NSFW.*** <:NO_NSFW:681246772290781237>`)
 		const mention = message.mentions.users.first();
 		if (message.author == mention) {
