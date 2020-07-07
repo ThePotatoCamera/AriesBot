@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
     .then (message.delete());
     
     message.delete();
-    client.guilds.get(`678282402979905547`).client.channels.get('681147632340566055').send({embed: {
+    client.guilds.cache.get(`678282402979905547`).client.channels.cache.get('681147632340566055').send({embed: {
         color: 3447003,
         description: reporte,
         timestamp: new Date(),
