@@ -1,5 +1,7 @@
 module.exports.run = async (bot, message, args) => {
 
+    if (!message.guild) return message.channel.send('No puedes ejecutar este comando en un canal privado.');
+
     const Discord = require('discord.js');
     const tablas = require('../index.js');
     contar()

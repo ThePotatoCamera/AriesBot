@@ -1,29 +1,27 @@
 exports.run = async (client, message, args) => {
 	const Discord = require('discord.js');
-    if (message.channel.nsfw === false) return message.channel.send(`${message.author}, <:NO_NSFW:681246772290781237> ***no puedo mostrar contenido NSFW fuera de los canales NSFW.*** <:NO_NSFW:681246772290781237>`)
-		const mention = message.mentions.members.first();
-		if (message.author == args[0]) {
-			message.channel.send("Por favor, menciona a alguien.")
-		}
-		else if (args < 1) {
-			const randomImage = await randomItem(message.author.id);
-			const embed = new Discord.MessageEmbed()
-				.setColor(0xefb810)
-				.setDescription(`${message.author} se está masturbando.`)
-				.setImage(randomImage);
+    if (message.channel.nsfw === false) return message.channel.send(`${message.author}, <:NO_NSFW:681246772290781237> ***no puedo mostrar contenido NSFW fuera de los canales NSFW.*** <:NO_NSFW:681246772290781237>`);
+	if (message.author == args[0]) {
+		message.channel.send("Por favor, menciona a alguien.")
+	}
+	else if (args < 1) {
+		const randomImage = await randomItem(message.author.id);
+		const embed = new Discord.MessageEmbed()
+			.setColor(0xefb810)
+			.setDescription(`${message.author} se está masturbando.`)
+			.setImage(randomImage);
+			
+		message.channel.send({ embed });
+	}
+	else {
+		const user = message.mentions.members.first();
+		const randomImage = await randomItem(message.author.id);
+		const embed = new Discord.MessageEmbed()
+			.setColor(0xefb810)
+			.setDescription(`${message.author} se está masturbando pensando en ${user}.`)
+			.setImage(randomImage);
 
-			message.channel.send({ embed });
-		}
-		else {
-			const user = message.mentions.members.first()
-				  if (!user) return message.channel.send("Por favor, menciona a alguien.");
-			const randomImage = randomItem(message.author.id);
-			const embed = new Discord.MessageEmbed()
-				.setColor(0xefb810)
-				.setDescription(`${message.author} se está masturbando pensando en ${mention}.`)
-				.setImage(randomImage);
-
-			message.channel.send({ embed });
+		message.channel.send({ embed });
 		}
 	}
 
