@@ -1,6 +1,6 @@
 {
   "name": "ariesbot",
-  "version": "5.0.0",
+  "version": "5.0.2",
   "description": "Ariesbot",
   "main": "index.js",
   "engines": {
