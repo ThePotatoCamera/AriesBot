@@ -7,7 +7,7 @@ exports.run = (client, message, args) => {
        
        if (staff.members.get(message.author.id)) { 
        
-        const mention = message.mentions.users.first();
+        const mention = client.users.resolve(args[0]);
         const mensaje = args.slice(1).join(" ");
        
         if(!mention) message.channel.send("Por favor, menciona a alguien.");
