@@ -1,4 +1,4 @@
-exports.run = (bot, message, args) => {
+exports.run = async (bot, message, args) => {
 	const Discord = require('discord.js');
 
 	if (message.guild) {
@@ -6,12 +6,13 @@ exports.run = (bot, message, args) => {
         else classicMode = false;
 		const verificationLevel = verificationLevelTranslator(message.guild.verificationLevel, classicMode);
 		const region = regionFormatter(message.guild.region);
+		const owner = await message.guild.members.fetch(message.guild.ownerID);
 		const embed = new Discord.MessageEmbed()
 			.setTitle(`Información sobre ${message.guild.name}`)
 			.setColor(0x7289da)
 			.setThumbnail(message.guild.iconURL())
 			.addField('ID', message.guild.id, true)
-			.addField('Dueño actual', message.guild.owner, true)
+			.addField('Dueño actual', `${message.guild.owner.user.tag}`, true)
 			.addField('Región', region, true)
 			.addField('Fecha de creación', message.guild.createdAt, true)
 			.addField('Usuarios en total', message.guild.memberCount, true)
