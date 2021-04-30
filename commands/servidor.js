@@ -9,7 +9,7 @@ exports.run = (bot, message, args) => {
 		const embed = new Discord.MessageEmbed()
 			.setTitle(`Información sobre ${message.guild.name}`)
 			.setColor(0x7289da)
-			.setThumbnail(message.guild.iconURL)
+			.setThumbnail(message.guild.iconURL())
 			.addField('ID', message.guild.id, true)
 			.addField('Dueño actual', message.guild.owner, true)
 			.addField('Región', region, true)
