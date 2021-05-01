@@ -68,7 +68,7 @@ module.exports.run = async (client, message, args) => {
                 .addField('Utiles', 'Comandos utiles')
                 .addField("Animales","Comandos donde se envian gifs y fotos del animal que quieres")
                 .addField('Moderacion','Comandos de moderacion')
-                .addField('===', '---')
+                .addField("===","---")
                 .setFooter('Para ver los comandos de cada categoría,Pon el nombre de la categoria despues del comando')
                 .setTimestamp();
             message.author.send(mainEmbed);
@@ -140,7 +140,6 @@ module.exports.run = async (client, message, args) => {
                     .setColor(0xefb810)
                     .addField("tonto","Llamas tonto a quién mencionas.  ***Sintaxis: d!tonto [@usuario]***")
                     .addField("felicidades","Felicitas a quién mencionas.  ***Sintaxis: d!felicidades [@usuario]***")
-                    .addField('definirgenero', 'Define tu genero para ciertos comandos. ***Sintaxis: d!definirgenero [chico | chica]***')
                     .addField('f', 'Paga tus respetos. ***Sintaxis: d!f***')
                     .setTimestamp();
         
@@ -175,7 +174,6 @@ module.exports.run = async (client, message, args) => {
                     .addField(`follar:`,`Follar con quien mencionas.  ***Sintaxis: d!follar <@usuario>***`)
                     .addField(`chuparla:`,`Se la chupas a quien mencionas.  ***Sintaxis: d!chuparla <@usuario>***`)
                     .addField(`masturbarse:`,`Te masturbas.  ***Sintaxis: d!masturbarse [@usuario]***`)
-                    .addField(`ariesdicensfw`,`Es como el "Simón dice" pero con Aries y con cosas NSFW (+18).  ***Sintaxis: d!ariesdicensfw***`)
                     .setTimestamp();
         
                 message.author.send(proEmbed);
@@ -201,9 +199,9 @@ module.exports.run = async (client, message, args) => {
                         .addField(`redes`,`Te muestra las redes sociales de Aries. ***Sintaxis: d!redes***`)
                         .addField(`servidor:`,`Te muestra la información del servidor. ***Sintaxis: d!servidor***`)
                         .addField(`usuario:`,`Te muestra la información del usuario mencionado. ***Sintaxis: d!usuario [@usuario]***`)
-                        .addField(`afk`,`Sistema afk cuando te mencionan el bot pone el mensaje que definas.  ***Sintaxis: d!afk [razon]***`)
                         .addField(`avatar`,`Manda la foto de perfil del usuario mencionado o la tuya si no mencionas a nadie.   ***Sintaxis: d!foto [@usuario]***`)
                         .addField(`codigo`,`Genera un codigo aleatorio en forma de XXXX**-**XXXX**-**XXXX.  ***Sintaxis: d!codigo***`)
+                        .addField('definirgenero', 'Define tu genero para ciertos comandos. ***Sintaxis: d!definirgenero [chico | chica]***')
                         .setTimestamp();
         
                     message.author.send(suEmbed);
