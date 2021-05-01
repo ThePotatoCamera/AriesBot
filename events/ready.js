@@ -1,6 +1,5 @@
 exports.run = async (bot) => {
 
-    const config = require('../botconfig.json');
     require('dotenv').config();
 
     bot.user.setPresence({

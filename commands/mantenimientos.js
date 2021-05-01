@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 
 	exports.run = (client, message, args, bot) => {
-		const config = require('../botconfig.json');
 		const ping = Math.round(client.ping);
 	
 		const embed = new Discord.MessageEmbed()

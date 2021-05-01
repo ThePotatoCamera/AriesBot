@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (bot, message, botconfig) => {
+module.exports.run = async (bot, message) => {
     const embed = new Discord.MessageEmbed() 
     .setTitle("Este es el historial de versiones:")
     .setColor(0x00AE86)

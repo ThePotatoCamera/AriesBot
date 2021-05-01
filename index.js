@@ -1,6 +1,5 @@
 require('dotenv').config();
 const { Client, Intents } = require("discord.js");
-const config = require("./botconfig.json");
 const token = process.env.TOKEN;
 const Sequelize = require('sequelize');
 
