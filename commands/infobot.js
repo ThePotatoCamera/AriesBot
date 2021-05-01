@@ -9,7 +9,7 @@ const Discord = require("discord.js");
 			.setThumbnail(client.user.avatarURL)
 			.setColor(0xefb810)
 			.addField('🏓 Ping:', ping, true)
-			.addField('🔧 Versión:', config.longVersion, true)
+			.addField('🔧 Versión:', process.env.longVersion, true)
 			.addField('Verificación:', verificado(client.user.verified), true)
 			.setFooter('Desarrollado por el equipo de AriesBot.')
 			.setTimestamp();
