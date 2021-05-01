@@ -14,10 +14,10 @@ module.exports.run = async (bot, message, args) => {
     };
 
   const embed = new Discord.MessageEmbed()
-    .addField("***Información de usuario***", miembro.tag)
-    .setThumbnail(miembro.avatarURL)
+    .addField("***Información de usuario***", miembro.user.tag)
+    .setThumbnail(miembro.user.avatarURL())
     .addField('ID:', miembro.id, false)
-    .addField('Cuenta creada el:', miembro.createdAt)
+    .addField('Cuenta creada el:', miembro.user.createdAt)
     .addField("Presencia:", estados[miembro.user.presence.status], true)
     .setTimestamp()
     .setColor("#FF9900")
