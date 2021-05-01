@@ -18,7 +18,6 @@ module.exports.run = async (bot, message, args) => {
     .setThumbnail(miembro.user.avatarURL())
     .addField('ID:', miembro.id, false)
     .addField('Cuenta creada el:', miembro.user.createdAt)
-    .addField("Presencia:", estados[miembro.user.presence.status], true)
     .setTimestamp()
     .setColor("#FF9900")
     
