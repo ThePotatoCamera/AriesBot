@@ -2,7 +2,7 @@ exports.run = (client, message, args) => {
     
     let reporte = args.slice(0).join(" ")
 
-    if (!args[0]) return message.author.send("Por favor, añade el reporte en forma de mensaje.")
+    if (!args[0]) return message.author.send("Por favor, añade el reporte en forma de mensaje.").catch(()=>{ message.channel.send( "Activa los MD (mensajes directos), porfavor");return})
     .then (message.delete());
     
     message.delete();
@@ -15,7 +15,7 @@ exports.run = (client, message, args) => {
             text: `Mensaje enviado por: ${message.author.tag} (${message.author.id})`
           }
       }}).then(
-          message.author.send(`Reporte enviado, recuerda que puedes unirte al servidor de soporte con **d!soporte**.`)
+          message.author.send(`Reporte enviado, recuerda que puedes unirte al servidor de soporte con **d!soporte**.`).catch(()=>{ message.channel.send( "Reporte enviado");return})
       )
 };
 module.exports.help = {

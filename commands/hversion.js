@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, botconfig) => {
     .addField('5.0.0', 'Añadido el comando `definirgenero`, `f`. A partir de ahora los GIFs NSFW distinguen según tu género si lo has definido.')
     .setTimestamp()
   
-    message.author.send(embed); 
+    message.author.send(embed).catch(()=>{ message.channel.send( "Activa los MD (mensajes directos), porfavor");return})
      message.react("📩")
                                       
 }

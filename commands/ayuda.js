@@ -71,7 +71,7 @@ module.exports.run = async (client, message, args) => {
                 .addField("===","---")
                 .setFooter('Para ver los comandos de cada categoría,Pon el nombre de la categoria despues del comando')
                 .setTimestamp();
-            message.author.send(mainEmbed);
+            message.author.send(mainEmbed).catch(()=>{ message.channel.send( "Activa los MD (mensajes directos), porfavor");return})
             
         
             function categoriaBot() {
@@ -91,7 +91,7 @@ module.exports.run = async (client, message, args) => {
                     .addField(`reportar`,`Reporta a un usuario por usar mal el bot. ***Sintaxis: d!reportar <reporte>***`)
                     .setTimestamp();
         
-                message.author.send(botEmbed);
+                message.author.send(botEmbed).catch(()=>{ message.channel.send( "Activa los MD (mensajes directos), porfavor");return})
             }
         
             function categoriaSocial1() {
@@ -111,7 +111,7 @@ module.exports.run = async (client, message, args) => {
                     .setFooter('Siguiente página: d!ayuda social 2')
                     .setTimestamp();
         
-                message.author.send(socialEmbed)
+                message.author.send(socialEmbed).catch(()=>{ message.channel.send( "Activa los MD (mensajes directos), porfavor");return})
             }
 
             function categoriaSocial2() {
@@ -131,7 +131,7 @@ module.exports.run = async (client, message, args) => {
                     .setFooter('Siguiente página: d!ayuda social 3')
                     .setTimestamp();
         
-                message.author.send(socialEmbed);
+                message.author.send(socialEmbed).catch(()=>{ message.channel.send( "Activa los MD (mensajes directos), porfavor");return})
             }
 
             function categoriaSocial3() {
@@ -143,7 +143,7 @@ module.exports.run = async (client, message, args) => {
                     .addField('f', 'Paga tus respetos. ***Sintaxis: d!f***')
                     .setTimestamp();
         
-                message.author.send(socialEmbed);
+                message.author.send(socialEmbed).catch(()=>{ message.channel.send( "Activa los MD (mensajes directos), porfavor");return})
             }
         
             function categoriaEntretenimiento(){
@@ -162,7 +162,7 @@ module.exports.run = async (client, message, args) => {
                     .addField(`spoiler:`,`Es como el comando **decir**, pero pone todo con spoiler (||así||). ***Sintaxis: d!spoiler <frase,palabra o numero>***`)
                     .setTimestamp();
         
-                message.author.send(funEmbed);
+                message.author.send(funEmbed).catch(()=>{ message.channel.send( "Activa los MD (mensajes directos), porfavor");return})
             
             }
         
@@ -176,7 +176,7 @@ module.exports.run = async (client, message, args) => {
                     .addField(`masturbarse:`,`Te masturbas.  ***Sintaxis: d!masturbarse [@usuario]***`)
                     .setTimestamp();
         
-                message.author.send(proEmbed);
+                message.author.send(proEmbed).catch(()=>{ message.channel.send( "Activa los MD (mensajes directos), porfavor");return})
             
             }
         
@@ -188,7 +188,7 @@ module.exports.run = async (client, message, args) => {
                     .addField(`bdecir`,`Igual que el decir del entretenimiento pero borra el comando puesto. ***Sintaxis: d!decir <frase,palabra o número>***`)
                     .setTimestamp();
         
-                message.author.send(otherEmbed);
+                message.author.send(otherEmbed).catch(()=>{ message.channel.send( "Activa los MD (mensajes directos), porfavor");return})
             
             }
         
@@ -204,7 +204,7 @@ module.exports.run = async (client, message, args) => {
                         .addField('definirgenero', 'Define tu genero para ciertos comandos. ***Sintaxis: d!definirgenero [chico | chica]***')
                         .setTimestamp();
         
-                    message.author.send(suEmbed);
+                    message.author.send(suEmbed).catch(()=>{ message.channel.send( "Activa los MD (mensajes directos), porfavor");return})
             
                 }
 
@@ -215,7 +215,7 @@ module.exports.run = async (client, message, args) => {
                     .addField("gato","Envía GIFs y fotos de gatos. ***Sintaxis: d!gato")
                     .addField("perro","Envía GIFs y fotos de perros. ***Sintaxis: d!perro")
                     .setTimestamp();
-                    message.author.send(animales);
+                    message.author.send(animales).catch(()=>{ message.channel.send( "Activa los MD (mensajes directos), porfavor");return})
             
                 }
 
@@ -229,7 +229,7 @@ module.exports.run = async (client, message, args) => {
                         .addField('trucha', 'Solo para Potato, para uso exclusivo con Poke.')
                         .setTimestamp();
         
-                    message.author.send(staffbot);
+                    message.author.send(staffbot).catch(()=>{ message.channel.send( "Activa los MD (mensajes directos), porfavor");return})
             
                 }
             }
