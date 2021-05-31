@@ -20,12 +20,13 @@
     "discord.js"
   ],
   "author": "Poketoribio",
-  "contributors": ["ThePotatoCamera <alex0xela@outlook.com> (https://github.com/ThePotatoCamera)"],
+  "contributors": [
+    "ThePotatoCamera <alex0xela@outlook.com> (https://github.com/ThePotatoCamera)"
+  ],
   "license": "UNLICENSED",
   "homepage": "https://github.com/thepotatocamera/ariesbot",
   "dependencies": {
-    "discord.js": "^12.2.0",
-    "discordjs-bot-framework": "^1.9.94",
+    "discord.js": "^12.5.3",
     "dotenv": "^8.2.0",
     "pg": "^8.1.0",
     "pg-hstore": "^2.3.3",
@@ -33,6 +34,5 @@
   },
   "bugs": {
     "url": "https://github.com/ThePotatoCamera/AriesBot/issues"
-  },
-  "devDependencies": {}
+  }
 }
