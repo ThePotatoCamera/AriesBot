@@ -10,25 +10,18 @@ intents.add('GUILD_PRESENCES', 'GUILD_MEMBERS', 'GUILD_MESSAGES', 'GUILD_MESSAGE
 // Crear el cliente y la colección de comandos
 const bot = new Client({disableEveryone: true}, {ws: { intents: intents}});
 
-// Configuracion de la DB (Nota: pasar a SQLite para testeo.)
-/* const sequelize = new Sequelize('database', 'user', 'password', {
-  host: 'localhost',
-  dialect: 'sqlite',
-  logging: false,
-  // Config exclusiva SQLite
-  storage: 'database.sqlite'
-});
-*/
+// Configuracion de la DB (Comentar los dialectOptions en testeo, eso o configura tu SSL)
+
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
-  dialect: 'postgres',
-  protocol: 'postgres',
-  dialectOptions: {
-    ssl: {
-    rejectUnauthorized: false
-    },
-  },
-  logging: false,
-});
+      dialect: 'postgres',
+      protocol: 'postgres',
+      dialectOptions: {
+        ssl: {
+        rejectUnauthorized: false
+        },
+      },
+      logging: false,
+    });
 
 // Definición de tablas de la DB
 const tablaGeneros = sequelize.define('generos', {
