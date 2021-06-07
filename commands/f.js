@@ -14,27 +14,26 @@ module.exports.run = async (bot, message, args) => {
             }
         });
         if (contador) {
+            const cantidadF = contador.get('contadorF');
             contador.increment('contadorF');
             tablas.tablaF.sync();
             const embed = new Discord.MessageEmbed()
             .setColor(0xaa0000)
             .setTitle('F en el chat')
             .setDescription(`${message.author} ha pagado sus respetos.`)
-            .setFooter(`Total de respetos: ${contador.get('contadorF')}`);
-        
+            .setFooter(`Total de respetos: ${cantidadF}`);
             return message.channel.send({embed});;
         }
         else {
             const contador = await tablas.tablaF.create ({
                 contadorF: 1,
             });
-            contador.increment('contadorF')
             tablas.tablaF.sync();
             const embed = new Discord.MessageEmbed()
             .setColor(0xaa0000)
             .setTitle('F en el chat')
             .setDescription(`${message.author} ha pagado sus respetos.`)
-            .setFooter(`Total de respetos: ${contador.get('contadorF')}`);
+            .setFooter(`Total de respetos: ${contador}`);
         
             return message.channel.send({embed});
         }
