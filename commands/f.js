@@ -14,9 +14,10 @@ module.exports.run = async (bot, message, args) => {
             }
         });
         if (contador) {
-            const cantidadF = contador.get('contadorF');
+            let cantidadF = contador.get('contadorF');
             contador.increment('contadorF');
             tablas.tablaF.sync();
+						cantidadF = contador.get('contadorF');
             const embed = new Discord.MessageEmbed()
             .setColor(0xaa0000)
             .setTitle('F en el chat')
@@ -29,11 +30,12 @@ module.exports.run = async (bot, message, args) => {
                 contadorF: 1,
             });
             tablas.tablaF.sync();
+						cantidadF = contador.get('contadorF');
             const embed = new Discord.MessageEmbed()
             .setColor(0xaa0000)
             .setTitle('F en el chat')
             .setDescription(`${message.author} ha pagado sus respetos.`)
-            .setFooter(`Total de respetos: ${contador}`);
+            .setFooter(`Total de respetos: ${cantidadF}`);
         
             return message.channel.send({embed});
         }
