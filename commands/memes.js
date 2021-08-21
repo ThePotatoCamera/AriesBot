@@ -1,4 +1,4 @@
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
     const Discord = require('discord.js');
     const api = require("imageapi.js")
 
@@ -20,10 +20,7 @@ exports.run = async (client, message, args) => {
                 }
               })
 }
-/*.catch(err => {
-  console.error(err)
-})
-*/
+
 module.exports.help = {
     name: "memes"
   }
