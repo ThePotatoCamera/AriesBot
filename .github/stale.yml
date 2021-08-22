@@ -7,6 +7,7 @@ exemptLabels:
   - prioridad:0
   - prioridad:1
   - update:core
+  - estado:paralizada
 # Label to use when marking an issue as stale
 staleLabel: estado:expirada
 # Comment to post when marking an issue as stale. Set to `false` to disable
