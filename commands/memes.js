@@ -6,8 +6,10 @@ module.exports.run = async (client, message, args) => {
   const imagenreddit = reddit[Math.floor(Math.random()*(reddit.length))]
   const img = await api(imagenreddit).catch(e => {
     console.error('[ERROR API REDDIT]' + e)
-    return message.channel.send('Ha ocurrido un error al pedir un meme a reddit, reintentalo.')
+    message.channel.send(`Ha ocurrido un error al recuperar la imagen de Reddit, intentalo de nuevo.`)
   })
+
+  if (!img) return
 
   const embed = new Discord.MessageEmbed()
               .setTitle(`Meme sacado de r/${imagenreddit}`)
