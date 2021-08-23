@@ -26,6 +26,7 @@
   "license": "UNLICENSED",
   "homepage": "https://github.com/thepotatocamera/ariesbot",
   "dependencies": {
+    "axios": "^0.21.1",
     "discord.js": "^12.5.3",
     "dotenv": "^8.2.0",
     "imageapi.js": "^1.7.0",
